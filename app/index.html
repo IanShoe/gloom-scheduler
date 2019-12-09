@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div id="app" class="container-fluid">
+  <div id="app" class="container-fluid" v-cloak>
     <!-- <pre>{{days}}</pre> -->
     <h3 class="header">Choose Your Player</h3>
     <div class="row">
@@ -30,43 +30,43 @@
     <div class="row">
       <table class="table table-bordered">
         <thead>
-          <th v-bind:class="{'header-toggled': days.sun.toggled}" v-on:click="toggleDay('sun')">Sunday</th>
-          <th v-bind:class="{'header-toggled': days.mon.toggled}" v-on:click="toggleDay('mon')">Monday</th>
-          <th v-bind:class="{'header-toggled': days.tue.toggled}" v-on:click="toggleDay('tue')">Tuesday</th>
-          <th v-bind:class="{'header-toggled': days.wed.toggled}" v-on:click="toggleDay('wed')">Wednesday</th>
-          <th v-bind:class="{'header-toggled': days.thu.toggled}" v-on:click="toggleDay('thu')">Thursday</th>
-          <th v-bind:class="{'header-toggled': days.fri.toggled}" v-on:click="toggleDay('fri')">Friday</th>
-          <th v-bind:class="{'header-toggled': days.sat.toggled}" v-on:click="toggleDay('sat')">Saturday</th>
+          <th width="14%" v-bind:class="{'header-toggled': days.sun.toggled}" v-on:click="toggleDay('sun')">Sunday <span class="badge badge-pill badge-secondary badge-counter" v-if="days.sun.players.length">{{days.sun.players.length}}</span></th>
+          <th width="14%" v-bind:class="{'header-toggled': days.mon.toggled}" v-on:click="toggleDay('mon')">Monday <span class="badge badge-pill badge-secondary badge-counter" v-if="days.mon.players.length">{{days.mon.players.length}}</span></th>
+          <th width="14%" v-bind:class="{'header-toggled': days.tue.toggled}" v-on:click="toggleDay('tue')">Tuesday <span class="badge badge-pill badge-secondary badge-counter" v-if="days.tue.players.length">{{days.tue.players.length}}</span></th>
+          <th width="14%" v-bind:class="{'header-toggled': days.wed.toggled}" v-on:click="toggleDay('wed')">Wednesday <span class="badge badge-pill badge-secondary badge-counter" v-if="days.wed.players.length">{{days.wed.players.length}}</span></th>
+          <th width="14%" v-bind:class="{'header-toggled': days.thu.toggled}" v-on:click="toggleDay('thu')">Thursday <span class="badge badge-pill badge-secondary badge-counter" v-if="days.thu.players.length">{{days.thu.players.length}}</span></th>
+          <th width="14%" v-bind:class="{'header-toggled': days.fri.toggled}" v-on:click="toggleDay('fri')">Friday <span class="badge badge-pill badge-secondary badge-counter" v-if="days.fri.players.length">{{days.fri.players.length}}</span></th>
+          <th width="14%" v-bind:class="{'header-toggled': days.sat.toggled}" v-on:click="toggleDay('sat')">Saturday <span class="badge badge-pill badge-secondary badge-counter" v-if="days.sat.players.length">{{days.sat.players.length}}</span></th>
         </thead>
         <tbody>
           <tr>
-            <td v-on:click="selectDay('sun')">
+            <td width="14%" v-on:click="selectDay('sun')">
               <span class="badge badge-pill" v-for="player in days.sun.players" v-bind:class="player.class">{{player.name}}</span>
             </td>
-            <td v-on:click="selectDay('mon')">
+            <td width="14%" v-on:click="selectDay('mon')">
               <span class="badge badge-pill" v-for="player in days.mon.players" v-bind:class="player.class">{{player.name}}</span>
             </td>
-            <td v-on:click="selectDay('tue')">
+            <td width="14%" v-on:click="selectDay('tue')">
               <span class="badge badge-pill" v-for="player in days.tue.players" v-bind:class="player.class">{{player.name}}</span>
             </td>
-            <td v-on:click="selectDay('wed')">
+            <td width="14%" v-on:click="selectDay('wed')">
               <span class="badge badge-pill" v-for="player in days.wed.players" v-bind:class="player.class">{{player.name}}</span>
             </td>
-            <td v-on:click="selectDay('thu')">
+            <td width="14%" v-on:click="selectDay('thu')">
               <span class="badge badge-pill" v-for="player in days.thu.players" v-bind:class="player.class">{{player.name}}</span>
             </td>
-            <td v-on:click="selectDay('fri')">
+            <td width="14%" v-on:click="selectDay('fri')">
               <span class="badge badge-pill" v-for="player in days.fri.players" v-bind:class="player.class">{{player.name}}</span>
             </td>
-            <td v-on:click="selectDay('sat')">
+            <td width="14%" v-on:click="selectDay('sat')">
               <span class="badge badge-pill" v-for="player in days.sat.players" v-bind:class="player.class">{{player.name}}</span>
             </td>
           </tr>
         </tbody>
       </table>
-      <div class="row">
-        <button type="button" name="button"></button>
-      </div>
+    </div>
+    <div class="row">
+      <button class="btn btn-danger" type="button" name="button" v-on:click="reset('sat')">Reset</button>
     </div>
   </div>
   <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
@@ -95,31 +95,31 @@
         selectedPlayer: null,
         days: {
           sun: {
-            players: null,
+            players: [],
             toggled: false
           },
           mon: {
-            players: null,
+            players: [],
             toggled: false
           },
           tue: {
-            players: null,
+            players: [],
             toggled: false
           },
           wed: {
-            players: null,
+            players: [],
             toggled: false
           },
           thu: {
-            players: null,
+            players: [],
             toggled: false
           },
           fri: {
-            players: null,
+            players: [],
             toggled: false
           },
           sat: {
-            players: null,
+            players: [],
             toggled: false
           }
         }
@@ -166,34 +166,35 @@
           reset: function() {
             data.days = {
               sun: {
-                players: null,
+                players: [],
                 toggled: false
               },
               mon: {
-                players: null,
+                players: [],
                 toggled: false
               },
               tue: {
-                players: null,
+                players: [],
                 toggled: false
               },
               wed: {
-                players: null,
+                players: [],
                 toggled: false
               },
               thu: {
-                players: null,
+                players: [],
                 toggled: false
               },
               fri: {
-                players: null,
+                players: [],
                 toggled: false
               },
               sat: {
-                players: null,
+                players: [],
                 toggled: false
               }
             };
+            socket.emit('days', data.days);
           }
         }
       });

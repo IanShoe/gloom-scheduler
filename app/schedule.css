@@ -1,9 +1,17 @@
-.header {
-  text-align: center;
+body {
+  padding: 10px;
 }
 
-.container-fluid {
-  padding: 10px;
+th, td {
+  cursor: pointer;
+}
+
+th.header-toggled {
+  background-color: green;
+}
+
+.header {
+  text-align: center;
 }
 
 .player-column {
@@ -31,14 +39,14 @@
   color: white;
 }
 
+.badge-counter {
+  font-size: 14px;
+}
+
 .player-column .badge.selected {
-  font-size: 24px;
+  font-size: 28px;
 }
 
-th, td {
-  cursor: pointer;
-}
-
-th.header-toggled {
-  background-color: green;
+[v-cloak] {
+  display: none;
 }
