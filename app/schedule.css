@@ -10,8 +10,12 @@ th.header-toggled {
   background-color: green;
 }
 
-.header {
+h3 {
   text-align: center;
+}
+
+.calendar {
+  margin-top: 10px;
 }
 
 .player-column {

@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="row">
-      <table class="table table-bordered">
+      <table class="table table-bordered calendar">
         <thead>
           <th width="14%" v-bind:class="{'header-toggled': days.sun.toggled}" v-on:click="toggleDay('sun')">Sunday <span class="badge badge-pill badge-secondary badge-counter" v-if="days.sun.players.length">{{days.sun.players.length}}</span></th>
           <th width="14%" v-bind:class="{'header-toggled': days.mon.toggled}" v-on:click="toggleDay('mon')">Monday <span class="badge badge-pill badge-secondary badge-counter" v-if="days.mon.players.length">{{days.mon.players.length}}</span></th>
