@@ -1,0 +1,44 @@
+.header {
+  text-align: center;
+}
+
+.container-fluid {
+  padding: 10px;
+}
+
+.player-column {
+  text-align: center;
+  font-size: 20px;
+}
+
+.player-select-container {
+  height: 40px;
+}
+
+.badge {
+  cursor: pointer;
+  position: relative;
+  transition: all .25s ease;
+}
+
+.badge-purple {
+  background-color: rgb(114, 43, 138);
+  color: white;
+}
+
+.badge-brown {
+  background-color: rgb(105, 73, 61);
+  color: white;
+}
+
+.player-column .badge.selected {
+  font-size: 24px;
+}
+
+th, td {
+  cursor: pointer;
+}
+
+th.header-toggled {
+  background-color: green;
+}

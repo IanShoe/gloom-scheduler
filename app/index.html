@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Gloom Scheduler</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="schedule.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="app" class="container-fluid">
+    <!-- <pre>{{days}}</pre> -->
+    <h3 class="header">Choose Your Player</h3>
+    <div class="row">
+      <div class="container-fluid">
+        <div class="row player-select-container">
+          <div class="col-sm player-column" v-for="player in players">
+            <span class="badge badge-pill" v-bind:class="[player.class, {selected: player.selected}]" v-on:click="selectPlayer(player)">
+              {{player.name}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table table-bordered">
+        <thead>
+          <th v-bind:class="{'header-toggled': days.sun.toggled}" v-on:click="toggleDay('sun')">Sunday</th>
+          <th v-bind:class="{'header-toggled': days.mon.toggled}" v-on:click="toggleDay('mon')">Monday</th>
+          <th v-bind:class="{'header-toggled': days.tue.toggled}" v-on:click="toggleDay('tue')">Tuesday</th>
+          <th v-bind:class="{'header-toggled': days.wed.toggled}" v-on:click="toggleDay('wed')">Wednesday</th>
+          <th v-bind:class="{'header-toggled': days.thu.toggled}" v-on:click="toggleDay('thu')">Thursday</th>
+          <th v-bind:class="{'header-toggled': days.fri.toggled}" v-on:click="toggleDay('fri')">Friday</th>
+          <th v-bind:class="{'header-toggled': days.sat.toggled}" v-on:click="toggleDay('sat')">Saturday</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td v-on:click="selectDay('sun')">
+              <span class="badge badge-pill" v-for="player in days.sun.players" v-bind:class="player.class">{{player.name}}</span>
+            </td>
+            <td v-on:click="selectDay('mon')">
+              <span class="badge badge-pill" v-for="player in days.mon.players" v-bind:class="player.class">{{player.name}}</span>
+            </td>
+            <td v-on:click="selectDay('tue')">
+              <span class="badge badge-pill" v-for="player in days.tue.players" v-bind:class="player.class">{{player.name}}</span>
+            </td>
+            <td v-on:click="selectDay('wed')">
+              <span class="badge badge-pill" v-for="player in days.wed.players" v-bind:class="player.class">{{player.name}}</span>
+            </td>
+            <td v-on:click="selectDay('thu')">
+              <span class="badge badge-pill" v-for="player in days.thu.players" v-bind:class="player.class">{{player.name}}</span>
+            </td>
+            <td v-on:click="selectDay('fri')">
+              <span class="badge badge-pill" v-for="player in days.fri.players" v-bind:class="player.class">{{player.name}}</span>
+            </td>
+            <td v-on:click="selectDay('sat')">
+              <span class="badge badge-pill" v-for="player in days.sat.players" v-bind:class="player.class">{{player.name}}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <button type="button" name="button"></button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    $(function() {
+
+      const data = {
+        players: [{
+          name: 'Dan',
+          class: 'badge-brown',
+          selected: false
+        }, {
+          name: 'George',
+          class: 'badge-success',
+          selected: false
+        }, {
+          name: 'Ian',
+          class: 'badge-purple',
+          selected: false
+        }, {
+          name: 'Nick',
+          class: 'badge-primary',
+          selected: false
+        }],
+        selectedPlayer: null,
+        days: {
+          sun: {
+            players: null,
+            toggled: false
+          },
+          mon: {
+            players: null,
+            toggled: false
+          },
+          tue: {
+            players: null,
+            toggled: false
+          },
+          wed: {
+            players: null,
+            toggled: false
+          },
+          thu: {
+            players: null,
+            toggled: false
+          },
+          fri: {
+            players: null,
+            toggled: false
+          },
+          sat: {
+            players: null,
+            toggled: false
+          }
+        }
+      }
+
+      const socket = io();
+      socket.on('days', function(days) {
+        data.days = days;
+      });
+
+      const app = new Vue({
+        el: '#app',
+        data: data,
+        methods: {
+          selectPlayer: function(selectedPlayer) {
+            data.players.forEach(function(player) {
+              player.selected = player.name === selectedPlayer.name;
+            });
+            data.selectedPlayer = selectedPlayer;
+          },
+          selectDay: function(selectedDay) {
+            if (!data.selectedPlayer) {
+              return;
+            }
+            const day = data.days[selectedDay];
+            let foundIndex = -1;
+            day.players.forEach(function(player, i) {
+              if (player.name === data.selectedPlayer.name) {
+                foundIndex = i;
+              }
+            });
+            if (foundIndex === -1) {
+              day.players.push(data.selectedPlayer);
+            } else {
+              day.players.splice(foundIndex, 1);
+            }
+            socket.emit('days', data.days);
+          },
+          toggleDay: function(selectedDay) {
+            const day = data.days[selectedDay];
+            day.toggled = !day.toggled;
+            socket.emit('days', data.days);
+          },
+          reset: function() {
+            data.days = {
+              sun: {
+                players: null,
+                toggled: false
+              },
+              mon: {
+                players: null,
+                toggled: false
+              },
+              tue: {
+                players: null,
+                toggled: false
+              },
+              wed: {
+                players: null,
+                toggled: false
+              },
+              thu: {
+                players: null,
+                toggled: false
+              },
+              fri: {
+                players: null,
+                toggled: false
+              },
+              sat: {
+                players: null,
+                toggled: false
+              }
+            };
+          }
+        }
+      });
+      socket.emit('init');
+    });
+  </script>
+</body>
+
+</html>
