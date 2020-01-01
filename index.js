@@ -7,7 +7,6 @@ const io = require('socket.io')(http);
 app.use(express.static('app'));
 
 const data = require('./data.json');
-debugger;
 
 io.on('connection', function(socket) {
   socket.on('days', function(days) {
@@ -25,5 +24,5 @@ io.on('connection', function(socket) {
 });
 
 http.listen(3000, function() {
-  console.log('listening on *:' + 3000);
+  console.log('listening on port: 3000');
 });
