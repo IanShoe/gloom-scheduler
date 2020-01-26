@@ -1,5 +1,11 @@
 $(function() {
-  const data = {
+  const socket = io();
+  socket.on('weeks', function(weeks) {
+    vueData.weeks = weeks;
+  });
+  socket.emit('init');
+
+  const vueData = {
     players: [{
       name: 'Dan',
       class: 'badge-brown',
@@ -18,124 +24,49 @@ $(function() {
       selected: false
     }],
     selectedPlayer: null,
-    days: {
-      sun: {
-        title: 'Sunday',
-        players: [],
-        toggled: false
-      },
-      mon: {
-        title: 'Monday',
-        players: [],
-        toggled: false
-      },
-      tue: {
-        title: 'Tuesday',
-        players: [],
-        toggled: false
-      },
-      wed: {
-        title: 'Wednesday',
-        players: [],
-        toggled: false
-      },
-      thu: {
-        title: 'Thursday',
-        players: [],
-        toggled: false
-      },
-      fri: {
-        title: 'Friday',
-        players: [],
-        toggled: false
-      },
-      sat: {
-        title: 'Saturday',
-        players: [],
-        toggled: false
-      }
-    }
-  }
+    weeks: []
+  };
 
-  const socket = io();
-  socket.on('days', function(days) {
-    data.days = days;
-  });
-
-  const app = new Vue({
+  new Vue({
     el: '#app',
-    data: data,
+    data: vueData,
     methods: {
+      dayTitle: function(day) {
+        return ((day.number === 1) ? day.monthName + ' ' : '') + day.number;
+      },
+      isToday: function(day) {
+        const today = new Date();
+        return today.getDate() === day.number && today.getMonth() === day.month;
+      },
       selectPlayer: function(selectedPlayer) {
-        data.players.forEach(function(player) {
+        vueData.players.forEach(function(player) {
           player.selected = player.name === selectedPlayer.name;
         });
-        data.selectedPlayer = selectedPlayer;
+        vueData.selectedPlayer = selectedPlayer;
       },
       selectDay: function(selectedDay) {
-        if (!data.selectedPlayer) {
+        if (!vueData.selectedPlayer) {
           return;
         }
-        const day = data.days[selectedDay];
         let foundIndex = -1;
-        day.players.forEach(function(player, i) {
-          if (player.name === data.selectedPlayer.name) {
+        selectedDay.players.forEach(function(player, i) {
+          if (player.name === vueData.selectedPlayer.name) {
             foundIndex = i;
           }
         });
         if (foundIndex === -1) {
-          day.players.push(data.selectedPlayer);
+          selectedDay.players.push(vueData.selectedPlayer);
         } else {
-          day.players.splice(foundIndex, 1);
+          selectedDay.players.splice(foundIndex, 1);
         }
-        socket.emit('days', data.days);
+        socket.emit('weeks', vueData.weeks);
       },
-      toggleDay: function(selectedDay) {
-        const day = data.days[selectedDay];
-        day.toggled = !day.toggled;
-        socket.emit('days', data.days);
-      },
-      reset: function() {
-        data.days = {
-          sun: {
-            title: 'Sunday',
-            players: [],
-            toggled: false
-          },
-          mon: {
-            title: 'Monday',
-            players: [],
-            toggled: false
-          },
-          tue: {
-            title: 'Tuesday',
-            players: [],
-            toggled: false
-          },
-          wed: {
-            title: 'Wednesday',
-            players: [],
-            toggled: false
-          },
-          thu: {
-            title: 'Thursday',
-            players: [],
-            toggled: false
-          },
-          fri: {
-            title: 'Friday',
-            players: [],
-            toggled: false
-          },
-          sat: {
-            title: 'Saturday',
-            players: [],
-            toggled: false
-          }
-        };
-        socket.emit('days', data.days);
+      iansHouse: function(selectedDay, event) {
+        event.stopPropagation();
+        event.preventDefault();
+        selectedDay.iansHouse = !selectedDay.iansHouse;
+        socket.emit('weeks', vueData.weeks);
       }
     }
   });
-  socket.emit('init');
 });

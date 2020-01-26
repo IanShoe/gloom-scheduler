@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "gloom-scheduler",
   "dependencies": {
+    "cron": "^1.8.2",
     "express": "^4.15.2",
     "socket.io": "^2.3.0"
   },

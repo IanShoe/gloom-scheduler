@@ -1,9 +1,9 @@
-body {
-  padding: 10px;
+html, body, div#app {
+  height: 100%;
 }
 
-th, td {
-  cursor: pointer;
+body {
+  padding: 10px;
 }
 
 th.header-toggled {
@@ -14,8 +14,8 @@ h3 {
   text-align: center;
 }
 
-.calendar {
-  margin-top: 10px;
+.player-select-container {
+  height: 40px;
 }
 
 .player-column {
@@ -23,8 +23,51 @@ h3 {
   font-size: 20px;
 }
 
-.player-select-container {
-  height: 40px;
+.calendar-header {
+  text-align: center;
+}
+
+.calendar {
+  border: solid #ddd 1px;
+  margin-top: 10px;
+  overflow: scroll;
+  height: calc(100% - 120px);
+}
+
+.calendar-day {
+  border-color: #ddd;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  height: 138px;
+  transition: all .25s ease;
+  padding-top: 22px;
+}
+
+.calendar-day.calendar-today {
+  border-width: 2px;
+  border-color: rgb(20, 38, 152);
+}
+
+.calendar-day:hover {
+  border-color: rgb(32, 159, 26)
+}
+
+.calendar-day.ians-house {
+  background-color: rgba(106, 204, 17, 0.25);
+}
+
+.calendar-day .day-title {
+  position: absolute;
+  right: 5px;
+  text-align: right;
+  top: 2px;
+  transition: all .25s ease;
+}
+.calendar-day .day-title:hover {
+  border-radius: 50px;
+  color: blue;
+  font-size: 22px;
 }
 
 .badge {

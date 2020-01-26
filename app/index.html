@@ -15,35 +15,36 @@
 <body>
   <div id="app" class="container-fluid" v-cloak>
     <h3 class="header">Choose Your Player</h3>
-    <div class="row">
-      <div class="container-fluid">
-        <div class="row player-select-container">
-          <div class="col-sm player-column" v-for="player in players">
-            <span class="badge badge-pill" v-bind:class="[player.class, {selected: player.selected}]" v-on:click="selectPlayer(player)">
-              {{player.name}}
-            </span>
+    <div class="row player-select-container">
+      <div class="col-sm player-column" v-for="player in players">
+        <span class="badge badge-pill" v-bind:class="[player.class, {selected: player.selected}]" v-on:click="selectPlayer(player)">
+          {{player.name}}
+        </span>
+      </div>
+    </div>
+    <div class="row calendar-header">
+      <div class="col">Sun</div>
+      <div class="col">Monday</div>
+      <div class="col">Tuesday</div>
+      <div class="col">Wednesday</div>
+      <div class="col">Thursday</div>
+      <div class="col">Friday</div>
+      <div class="col">Saturday</div>
+    </div>
+    <div class="row calendar">
+      <div class="col">
+        <div class="row calendar-week" v-for="week in weeks">
+          <div class="col calendar-day" v-bind:class="{'calendar-today': isToday(day), 'ians-house': day.iansHouse}" v-for="day in week" v-on:click="selectDay(day)">
+            <div class="day-title" v-on:click="iansHouse(day, $event)">{{dayTitle(day)}}</div>
+            <div v-for="player in day.players">
+              <div class="badge badge-pill" v-bind:class="player.class">{{player.name}}</div>
+            </div>
+            <!-- <pre style="text-align: initial;font-size:10px;overflow:scroll;">{{day}}</pre> -->
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <table class="table table-bordered calendar">
-        <thead>
-          <th width="14%" v-for="(value, day) in days" v-bind:class="{'header-toggled': value.toggled}" v-on:click="toggleDay(day)">{{value.title}} <span class="badge badge-pill badge-secondary badge-counter" v-if="value.players.length">{{value.players.length}}</span></th>
-        </thead>
-        <tbody>
-          <tr>
-            <td width="14%" v-for="(value, day) in days" v-on:click="selectDay(day)">
-              <span class="badge badge-pill" v-for="player in value.players" v-bind:class="player.class">{{player.name}}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="row">
-      <button class="btn btn-danger" type="button" name="button" v-on:click="reset('sat')">Reset</button>
-    </div>
-    <!-- <pre>{{days}}</pre> -->
+    <!-- <pre>{{weeks}}</pre> -->
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
