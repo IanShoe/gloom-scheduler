@@ -5,6 +5,7 @@
   <title>Gloom Scheduler</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
   <link rel="stylesheet" href="schedule.css">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -34,7 +35,7 @@
     <div class="row calendar">
       <div class="col">
         <div class="row calendar-week" v-for="week in weeks">
-          <div class="col calendar-day" v-bind:class="{'calendar-today': isToday(day), 'ians-house': day.iansHouse}" v-for="day in week" v-on:click="selectDay(day)">
+          <div class="col calendar-day" v-bind:class="dayClasses(day)" v-for="day in week" v-on:click="selectDay(day)">
             <div class="day-title" v-on:click="iansHouse(day, $event)">{{dayTitle(day)}}</div>
             <div v-for="player in day.players">
               <div class="badge badge-pill" v-bind:class="player.class">{{player.name}}</div>

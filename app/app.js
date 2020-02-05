@@ -31,12 +31,18 @@ $(function() {
     el: '#app',
     data: vueData,
     methods: {
+      dayClasses: function(day) {
+        const today = new Date();
+        const isPast = day.month < today.getMonth() || (day.month === today.getMonth()  && day.number < today.getDate());
+        return {
+          'calendar-all': day.players.length === vueData.players.length,
+          'calendar-past': isPast,
+          'calendar-today': today.getDate() === day.number && today.getMonth() === day.month,
+          'ians-house': day.iansHouse
+        };
+      },
       dayTitle: function(day) {
         return ((day.number === 1) ? day.monthName + ' ' : '') + day.number;
-      },
-      isToday: function(day) {
-        const today = new Date();
-        return today.getDate() === day.number && today.getMonth() === day.month;
       },
       selectPlayer: function(selectedPlayer) {
         vueData.players.forEach(function(player) {
@@ -59,6 +65,15 @@ $(function() {
         } else {
           selectedDay.players.splice(foundIndex, 1);
         }
+        selectedDay.players = selectedDay.players.sort((a, b) => {
+          if (a.name > b.name) {
+            return 1;
+          } else if (a.name < b.name) {
+            return -1;
+          } else {
+            return 0;
+          }
+        });
         socket.emit('weeks', vueData.weeks);
       },
       iansHouse: function(selectedDay, event) {

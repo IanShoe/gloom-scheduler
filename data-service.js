@@ -47,7 +47,7 @@ function _provision() {
 function _setupNextMonth() {
   const firstDayOfNextMonth = dateUtils.getFirstDayOfNextMonth();
   const nextMonthsWeeks = dateUtils.generateWeeksOfMonth(firstDayOfNextMonth, _generateDay);
-  if (nextMonthsWeeks[0][0].day !== 1) {
+  if (nextMonthsWeeks[0][0].number !== 1) {
     nextMonthsWeeks.shift(); // first week of this month already accomodated for
     serverData.indicieOfNextMonth = serverData.weeks.length - 1;
   } else {

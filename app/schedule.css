@@ -1,5 +1,6 @@
 html, body, div#app {
   height: 100%;
+  user-select: none;
 }
 
 body {
@@ -19,8 +20,16 @@ h3 {
 }
 
 .player-column {
-  text-align: center;
   font-size: 20px;
+  text-align: center;
+}
+
+.player-column .badge {
+    cursor: pointer;
+}
+
+.player-column .badge.selected {
+  font-size: 28px;
 }
 
 .calendar-header {
@@ -29,9 +38,9 @@ h3 {
 
 .calendar {
   border: solid #ddd 1px;
+  height: calc(100% - 120px);
   margin-top: 10px;
   overflow: scroll;
-  height: calc(100% - 120px);
 }
 
 .calendar-day {
@@ -40,17 +49,31 @@ h3 {
   border-width: 1px;
   cursor: pointer;
   height: 138px;
-  transition: all .25s ease;
   padding-top: 22px;
-}
-
-.calendar-day.calendar-today {
-  border-width: 2px;
-  border-color: rgb(20, 38, 152);
+  transition: all .25s ease;
 }
 
 .calendar-day:hover {
-  border-color: rgb(32, 159, 26)
+  border-color: rgb(32, 159, 26);
+}
+
+.calendar-day.calendar-today {
+  border-color: rgb(20, 38, 152);
+  border-width: 2px;
+}
+
+.calendar-day.calendar-all {
+  box-shadow: inset 0px 0px 15px #00a0ff;
+}
+
+.calendar-day.calendar-past {
+  background-color: rgba(100, 100, 100, 0.25);
+  cursor: not-allowed;
+  opacity: .65;
+}
+
+.calendar-day.calendar-past:hover {
+  border-color: rgb(159, 46, 26);
 }
 
 .calendar-day.ians-house {
@@ -64,6 +87,7 @@ h3 {
   top: 2px;
   transition: all .25s ease;
 }
+
 .calendar-day .day-title:hover {
   border-radius: 50px;
   color: blue;
@@ -71,7 +95,6 @@ h3 {
 }
 
 .badge {
-  cursor: pointer;
   position: relative;
   transition: all .25s ease;
 }
@@ -84,14 +107,6 @@ h3 {
 .badge-brown {
   background-color: rgb(105, 73, 61);
   color: white;
-}
-
-.badge-counter {
-  font-size: 14px;
-}
-
-.player-column .badge.selected {
-  font-size: 28px;
 }
 
 [v-cloak] {
