@@ -3,7 +3,7 @@ $(function() {
   socket.on('weeks', function(weeks) {
     vueData.weeks = weeks;
   });
-  socket.emit('init');
+  socket.emit('init-scheduler');
 
   const vueData = {
     players: [{

@@ -1,7 +1,7 @@
 const fsRaw = require('fs');
 const fs = fsRaw.promises;
 
-const dateUtils = require('./date-utils');
+const dateUtils = require('../date-utils');
 const dataFile = './data.json';
 
 let serverData;
@@ -22,8 +22,9 @@ async function _setWeeks(weeks) {
 async function _initialize() {
   try {
     await fs.access(dataFile, fsRaw.constants.F_OK);
-    serverData = require(dataFile);
+    serverData = require("."+dataFile);
   } catch (err) {
+    console.log(err)
     _provision();
   }
   return _get();

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Gloom Scheduler</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="schedule.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="app" class="container-fluid" v-cloak>
+    <h3 class="header">Choose Your Player</h3>
+    <div class="row player-select-container">
+      <div class="col-sm player-column" v-for="player in players">
+        <span class="badge badge-pill" v-bind:class="[player.class, {selected: player.selected}]" v-on:click="selectPlayer(player)">
+          {{player.name}}
+        </span>
+      </div>
+    </div>
+    <div class="row calendar-header">
+      <div class="col">Sun</div>
+      <div class="col">Monday</div>
+      <div class="col">Tuesday</div>
+      <div class="col">Wednesday</div>
+      <div class="col">Thursday</div>
+      <div class="col">Friday</div>
+      <div class="col">Saturday</div>
+    </div>
+    <div class="row calendar">
+      <div class="col">
+        <div class="row calendar-week" v-for="week in weeks">
+          <div class="col calendar-day" v-bind:class="dayClasses(day)" v-for="day in week" v-on:click="selectDay(day)">
+            <div class="day-title" v-on:click="iansHouse(day, $event)">{{dayTitle(day)}}</div>
+            <div v-for="player in day.players">
+              <div class="badge badge-pill" v-bind:class="player.class">{{player.name}}</div>
+            </div>
+            <!-- <pre style="text-align: initial;font-size:10px;overflow:scroll;">{{day}}</pre> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <pre>{{weeks}}</pre> -->
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="scheduler.js"></script>
+</body>
+
+</html>
