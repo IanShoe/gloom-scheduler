@@ -1,39 +1,18 @@
 const fsRaw = require('fs');
+const path = require('path');
 const fs = fsRaw.promises;
 
-const dateUtils = require('./date-utils');
-const dataFile = './data.json';
+const dateUtils = require('../date-utils');
+const dataFile = path.resolve('data.json'); // TODO: move this into data-files. will need to migrate the file on the server.
 
 let serverData;
 
-function _get() {
-  return serverData;
-}
-
-async function _setWeeks(weeks) {
-  serverData.weeks = weeks;
+async function _writeData() {
   try {
     await fs.writeFile(dataFile, JSON.stringify(serverData, null, 2));
   } catch (err) {
     console.error(`ERROR WRITING JSON: ${err}`);
   }
-}
-
-async function _initialize() {
-  try {
-    await fs.access(dataFile, fsRaw.constants.F_OK);
-    serverData = require(dataFile);
-  } catch (err) {
-    _provision();
-  }
-  return _get();
-}
-
-function _nextMonth() {
-  for (let i = 0; i < serverData.indicieOfNextMonth; i++) {
-    serverData.weeks.shift();
-  }
-  _setupNextMonth();
 }
 
 function _provision() {
@@ -42,6 +21,7 @@ function _provision() {
     weeks: dateUtils.generateWeeksOfMonth(firstDayOfMonth, _generateDay)
   };
   _setupNextMonth();
+  _writeData();
 }
 
 function _setupNextMonth() {
@@ -64,6 +44,32 @@ function _generateDay(d) {
     number: d.getDate(),
     players: []
   };
+}
+
+function _get() {
+  return serverData;
+}
+
+async function _initialize() {
+  try {
+    await fs.access(dataFile, fsRaw.constants.F_OK);
+    serverData = require(dataFile);
+  } catch (err) {
+    _provision();
+  }
+  return _get();
+}
+
+function _nextMonth() {
+  for (let i = 0; i < serverData.indicieOfNextMonth; i++) {
+    serverData.weeks.shift();
+  }
+  _setupNextMonth();
+}
+
+async function _setWeeks(weeks) {
+  serverData.weeks = weeks;
+  _writeData();
 }
 
 module.exports = {

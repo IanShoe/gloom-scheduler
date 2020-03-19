@@ -1,0 +1,22 @@
+.battle-goal-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.battle-goal-card {
+  cursor: pointer;
+  height:360px;
+  margin-bottom:5px;
+  margin-top:5px;
+  transition: all .25s ease;
+  width:240px;
+}
+
+.battle-goal-card:hover {
+  box-shadow: 0px 0px 15px #00a0ff;
+}
+
+.battle-goal-card.not-selected-player:hover {
+  cursor: not-allowed;
+  box-shadow: 0px 0px 15px #ff0000;
+}
