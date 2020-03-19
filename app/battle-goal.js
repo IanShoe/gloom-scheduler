@@ -1,5 +1,5 @@
 $(function() {
-  const socket = io();
+  const socket = io('/battle-goal');
   socket.on('goals', function(goals) {
     console.log(goals)
     for (player in vueData.players) {

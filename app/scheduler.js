@@ -1,5 +1,5 @@
 $(function() {
-  const socket = io();
+  const socket = io('/scheduler');
   socket.on('weeks', function(weeks) {
     vueData.weeks = weeks;
   });
