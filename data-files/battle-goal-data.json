@@ -1,0 +1,64 @@
+{
+  "Dan": {
+    "goals": [
+      {
+        "name": "layabout",
+        "points": 10,
+        "image": "battle-goals/layabout.png",
+        "xws": "layabout"
+      },
+      {
+        "name": "hoarder",
+        "points": 7,
+        "image": "battle-goals/hoarder.png",
+        "xws": "hoarder"
+      }
+    ],
+    "name": "Dan"
+  },
+  "George": {
+    "goals": [
+      {
+        "name": "plunderer",
+        "points": 15,
+        "image": "battle-goals/plunderer.png",
+        "xws": "plunderer"
+      }
+    ],
+    "name": "George"
+  },
+  "Ian": {
+    "goals": [
+      {
+        "name": "hunter",
+        "points": 8,
+        "image": "battle-goals/hunter.png",
+        "xws": "hunter"
+      },
+      {
+        "name": "zealot",
+        "points": 24,
+        "image": "battle-goals/zealot.png",
+        "xws": "zealot"
+      }
+    ],
+    "name": "Ian"
+  },
+  "Nick": {
+    "goals": [
+      {
+        "name": "explorer",
+        "points": 5,
+        "image": "battle-goals/explorer.png",
+        "xws": "explorer"
+      },
+      {
+        "name": "purist",
+        "points": 18,
+        "image": "battle-goals/purist.png",
+        "xws": "purist"
+      }
+    ],
+    "name": "Nick"
+  }
+}

@@ -1,9 +1,9 @@
 $(function() {
-  const socket = io();
+  const socket = io('/scheduler');
   socket.on('weeks', function(weeks) {
     vueData.weeks = weeks;
   });
-  socket.emit('init');
+  socket.emit('init-scheduler');
 
   const vueData = {
     players: [{
