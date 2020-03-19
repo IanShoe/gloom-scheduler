@@ -1,0 +1,56 @@
+html, body, div#app {
+  height: 100%;
+  user-select: none;
+}
+
+body {
+  padding: 10px;
+}
+
+th.header-toggled {
+  background-color: green;
+}
+
+h3 {
+  text-align: center;
+}
+
+.player-select-container {
+  height: 40px;
+}
+
+.player-column {
+  font-size: 20px;
+  text-align: center;
+}
+
+.player-column .badge {
+    cursor: pointer;
+}
+
+.player-column .badge.selected {
+  font-size: 28px;
+}
+
+.badge {
+  position: relative;
+  transition: all .25s ease;
+}
+
+.badge-purple {
+  background-color: rgb(114, 43, 138);
+  color: white;
+}
+
+.badge-brown {
+  background-color: rgb(105, 73, 61);
+  color: white;
+}
+
+.centered {
+  text-align: center;
+}
+
+[v-cloak] {
+  display: none;
+}
