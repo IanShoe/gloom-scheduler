@@ -27,10 +27,10 @@
             <li>
               <img v-bind:src="setGoalImage(player, goal)" v-on:click="selectGoal(player.name, goal.name)" class="battle-goal-card" v-bind:class="setBattleGoalClass(player.name)">
             </li>
-            <li v-if="player.selected">
-              <button class="centered" v-on:click="deselectPlayer">Hide</button>
-            </li>
           </ul>
+        </div>
+        <div v-if="player.selected">
+          <button class="centered" v-on:click="deselectPlayer">Hide</button>
         </div>
       </div>
     </div>

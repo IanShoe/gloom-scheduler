@@ -7,7 +7,7 @@ const io = require('socket.io')(http);
 const schedulerDataService = require('./data-services/scheduler-data-service.js');
 const battleGoalDataService = require('./data-services/battle-goals-data-service.js');
 
-function initializeCron() {
+function initializeCron(io) {
   const job = new CronJob('0 0 0 1 * *', function() {
     schedulerDataService.nextMonth();
     io.emit('weeks', schedulerDataService.get().weeks);
@@ -31,6 +31,7 @@ function initializeBattleGoalSocket() {
       battleGoalIO.emit('goals', battleGoalDataService.get());
     });
   });
+  return battleGoalIO;
 }
 
 function initializeSchedulerSocket() {
@@ -45,6 +46,7 @@ function initializeSchedulerSocket() {
       schedulerIO.emit('weeks', schedulerDataService.get().weeks);
     });
   });
+  return schedulerIO;
 }
 
 async function main() {
@@ -53,9 +55,9 @@ async function main() {
   await battleGoalDataService.initialize();
   await schedulerDataService.initialize();
 
-  initializeCron();
-  initializeBattleGoalSocket();
-  initializeSchedulerSocket();
+  const battleGoalIO = initializeBattleGoalSocket();
+  const schedulerIO = initializeSchedulerSocket();
+  initializeCron(schedulerIO);
 
   http.listen(3000, function() {
     console.log('listening on port: 3000');
