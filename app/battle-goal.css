@@ -10,6 +10,7 @@
   margin-top:5px;
   transition: all .25s ease;
   width:240px;
+  border-radius:25px;
 }
 
 .battle-goal-card:hover {

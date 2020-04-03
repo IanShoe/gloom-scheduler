@@ -1,0 +1,40 @@
+.item-list {
+  list-style: none;
+  padding-left: 0;
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  float: left;
+}
+
+.radio-button{
+  margin-right:50px;
+  margin-left:50px;
+}
+
+.item-card {
+  display: block;
+  cursor: pointer;
+  height:250px;
+  margin-bottom:10px;
+  margin-top:10px;
+  margin-right:10px;
+  margin-left:10px;
+  transition: all .25s ease;
+  width:175px;
+  border-radius:15px;
+}
+
+.item-card:hover {
+  box-shadow: 0px 0px 15px #00a0ff;
+}
+
+.item-card.not-selected-player:hover {
+  cursor: not-allowed;
+  box-shadow: 0px 0px 15px #ff0000;
+}
