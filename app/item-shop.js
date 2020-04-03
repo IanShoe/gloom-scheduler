@@ -5,7 +5,6 @@ $(function() {
   });
   socket.emit('init-items');
 
-  // TODO: player model is a bit off. Try to put it back in array form. Will need to look at server model too.
   const vueData = {
     players: [{
       name: 'Dan',
