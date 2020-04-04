@@ -3,12 +3,12 @@ html, body, div#app {
   user-select: none;
 }
 
-body {
-  padding: 10px;
-}
-
 th.header-toggled {
   background-color: green;
+}
+
+.main-content {
+  padding: 10px;
 }
 
 .player-select-container {

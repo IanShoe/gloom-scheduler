@@ -75,6 +75,9 @@ function initializeSchedulerSocket() {
 
 async function main() {
   app.use(express.static('app'));
+  app.get('/', (req, res) => {
+    res.redirect('/scheduler.html');
+  });
 
   await battleGoalDataService.initialize();
   await schedulerDataService.initialize();
