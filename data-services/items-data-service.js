@@ -30,16 +30,17 @@ async function _initialize() {
 }
 
 async function _provision() {
-  let allItems = JSON.parse(fsRaw.readFileSync(rawItemData));
-  serverData = allItems;
+  serverData = JSON.parse(fsRaw.readFileSync(rawItemData));
   await _writeData();
 }
 
 async function _unlockItems(unlockedItems) {
-  unlockedItems=unlockedItems.trim();
-  unlockEndpoints=unlockedItems.split("-");
+  unlockedItems = unlockedItems.trim();
+  unlockEndpoints = unlockedItems.split('-');
   if (unlockEndpoints.length > 1) {
-    for (let i=parseInt(unlockEndpoints[0]); i <= parseInt(unlockEndpoints[1])+1; i++){
+    const start = parseInt(unlockEndpoints[0]);
+    const stop = parseInt(unlockEndpoints[1]);
+    for (let i = start; i <= stop; i++) {
       _unlockItem(i);
     }
   } else {
@@ -48,19 +49,19 @@ async function _unlockItems(unlockedItems) {
   await _writeData();
 }
 
-function _unlockItem(itemId){
-  serverData[itemId-1].available = true;
+function _unlockItem(itemId) {
+  serverData[itemId - 1].available = true;
 }
 
-async function _buyItem(playerName, itemId){
-  serverData[itemId-1].ownedBy.push(playerName);
+async function _buyItem(playerName, itemId) {
+  serverData[itemId - 1].ownedBy.push(playerName);
   await _writeData;
 }
 
-async function _sellItem(playerName, itemId){
-  for( var i = 0; i < serverData[itemId-1].ownedBy.length; i++) {
-    if ( serverData[itemId-1].ownedBy[i] === playerName) {
-      serverData[itemId-1].ownedBy.splice(i, 1); 
+async function _sellItem(playerName, itemId) {
+  for (let i = 0; i < serverData[itemId - 1].ownedBy.length; i++) {
+    if (serverData[itemId - 1].ownedBy[i] === playerName) {
+      serverData[itemId - 1].ownedBy.splice(i, 1);
     }
   }
 }

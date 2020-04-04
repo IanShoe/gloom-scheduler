@@ -4,37 +4,42 @@
   overflow: hidden;
 }
 
-ul {
-  list-style: none;
-}
-
-li {
-  float: left;
-}
-
-.radio-button{
-  margin-right:50px;
-  margin-left:50px;
-}
-
 .item-card {
-  display: block;
-  cursor: pointer;
-  height:250px;
-  margin-bottom:10px;
-  margin-top:10px;
-  margin-right:10px;
-  margin-left:10px;
+  float: left;
+  height: 260px;
+  margin: 10px;
+  position: relative;
   transition: all .25s ease;
-  width:175px;
-  border-radius:15px;
+  width: 175px;
 }
 
-.item-card:hover {
-  box-shadow: 0px 0px 15px #00a0ff;
+.item-card.tapped img {
+  opacity: .5;
 }
 
-.item-card.not-selected-player:hover {
-  cursor: not-allowed;
-  box-shadow: 0px 0px 15px #ff0000;
+.item-card .item-remove {
+  cursor: pointer;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
+
+.item-card img {
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all .25s ease;
+  width: 100%;
+}
+
+.item-card img:hover {
+  box-shadow: 0px 0px 10px #00a0ff;
+}
+
+.item-control {
+  margin: 10px 0;
+}
+
+.item-control button.btn {
+  box-shadow: none !important;
+  outline: none;
 }

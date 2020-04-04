@@ -19,11 +19,6 @@ function initializeCron(io) {
 function initializeItemsSocket() {
   const itemsIO = io.of('/items');
   itemsIO.on('connection', function(socket) {
-    socket.on('select-goal', function(playerName,goalName) {
-      itemsDataService.selectGoal(playerName,goalName).then(function() {
-        itemsIO.emit('items', itemsDataService.get());
-      });
-    });
     socket.on('init-items', function() {
       itemsIO.emit('items', itemsDataService.get());
     });
@@ -32,11 +27,11 @@ function initializeItemsSocket() {
       itemsIO.emit('items', itemsDataService.get());
     });
     socket.on('buy-item', function(playerName, itemId) {
-      itemsDataService.buyItem(playerName,itemId);
+      itemsDataService.buyItem(playerName, itemId);
       itemsIO.emit('items', itemsDataService.get());
     });
     socket.on('sell-item', function(playerName, itemId) {
-      itemsDataService.sellItem(playerName,itemId);
+      itemsDataService.sellItem(playerName, itemId);
       itemsIO.emit('items', itemsDataService.get());
     });
   });
@@ -47,8 +42,8 @@ function initializeItemsSocket() {
 function initializeBattleGoalSocket() {
   const battleGoalIO = io.of('/battle-goal');
   battleGoalIO.on('connection', function(socket) {
-    socket.on('select-goal', function(playerName,goalName) {
-      battleGoalDataService.selectGoal(playerName,goalName).then(function() {
+    socket.on('select-goal', function(playerName, goalName) {
+      battleGoalDataService.selectGoal(playerName, goalName).then(function() {
         battleGoalIO.emit('goals', battleGoalDataService.get());
       });
     });

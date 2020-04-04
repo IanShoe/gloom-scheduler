@@ -16,7 +16,7 @@
 
 <body>
   <div id="app" class="container-fluid" v-cloak>
-    <h3 class="header">Choose Your Player</h3>
+    <h3 class="centered">Choose Your Player</h3>
     <div class="row player-select-container">
       <div class="col-sm player-column" v-for="player in players">
         <span class="badge badge-pill" v-bind:class="[player.class, {selected: player.selected}]" v-on:click="selectPlayer(player)">
@@ -24,46 +24,39 @@
         </span>
       </div>
     </div>
-    <ul>
-      <li class="radio-button">
-        <input type="radio" v-model="filter" value="All" selected>All
-      </li>
-      <li class="radio-button">
-        <input type="radio" v-model="filter" value="Head" selected>Head
-      </li>
-      <li class="radio-button">
-        <input type="radio" v-model="filter" value="Body" selected>Body
-      </li>
-      <li class="radio-button">
-        <input type="radio" v-model="filter" value="One Hand" selected>One Hand
-      </li>
-      <li class="radio-button">
-        <input type="radio" v-model="filter" value="Two Hands" selected>Two Hand
-      </li>
-      <li class="radio-button">
-        <input type="radio" v-model="filter" value="Legs" selected>Legs
-      </li>
-      <li class="radio-button">
-        <input type="radio" v-model="filter" value="Small Item" selected>Small Item
-      </li>
-    </ul>
-    <br/>
-    <h5>My Items</h5>
+
+    <div class="container-fluid item-control">
+      <div class="row">
+        <div class="col-9">
+          <div class="btn-group" role="group">
+            <button class="btn btn-outline-secondary" v-bind:class="{active: filterActive(filter)}" v-on:click="setFilter(filter)" v-for="filter in filters">{{filter}}</button>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="input-group unlock-control">
+            <input type="text" class="form-control" v-model="unlockedItems" placeholder="X or X-Y">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" v-on:click="unlockItems()">Unlock Items</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h5 class="centered">My Items</h5>
     <ul class="item-list">
-      <li v-if="shouldShowMyItem(item)" v-for="item in items">
-        <img v-bind:src="setItemImage(item)" class="item-card" v-on:click="sellItem(item)">
-        <!-- <img v-bind:src="setItemImage(item)" v-on:click="selectGoal(player.name, goal.name)" class="item-card" v-bind:class="setBattleGoalClass(player.name)"> -->
+      <li class="item-card" v-bind:class="{tapped: itemTapped(item)}" v-if="shouldShowMyItem(item)" v-for="item in items">
+        <img v-bind:src="setItemImage(item)" v-on:click="tapItem(item)">
+        <div class="item-remove" v-on:click="sellItem(item)">
+          <i class="fas fa-times-circle fa-lg"></i>
+        </div>
       </li>
     </ul>
-    <h5>Shop Items</h5>
+    <h5 class="centered">Shop Items</h5>
     <ul class="item-list">
-      <li v-if="shouldShowShopItem(item)" v-for="item in items">
-        <img v-bind:src="setItemImage(item)" class="item-card" v-on:click="buyItem(item)">
-        <!-- <img v-bind:src="setItemImage(item)" v-on:click="selectGoal(player.name, goal.name)" class="item-card" v-bind:class="setBattleGoalClass(player.name)"> -->
+      <li class="item-card" v-if="shouldShowShopItem(item)" v-for="item in items">
+        <img v-bind:src="setItemImage(item)" v-on:click="buyItem(item)">
       </li>
     </ul>
-    <input type="text" v-model="unlockedItems" placeholder="X or X-Y">
-    <button v-on:click="unlockItems()">Unlock Items</button>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
