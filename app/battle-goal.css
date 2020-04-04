@@ -5,11 +5,12 @@
 
 .battle-goal-card {
   cursor: pointer;
-  height:360px;
-  margin-bottom:5px;
-  margin-top:5px;
+  height: 360px;
+  margin-bottom: 5px;
+  margin-top: 5px;
   transition: all .25s ease;
-  width:240px;
+  width: 240px;
+  border-radius: 15px;
 }
 
 .battle-goal-card:hover {

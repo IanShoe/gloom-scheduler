@@ -6,6 +6,7 @@ const io = require('socket.io')(http);
 
 const schedulerDataService = require('./data-services/scheduler-data-service.js');
 const battleGoalDataService = require('./data-services/battle-goals-data-service.js');
+const itemsDataService = require('./data-services/items-data-service.js');
 
 function initializeCron(io) {
   const job = new CronJob('0 0 0 1 * *', function() {
@@ -15,11 +16,34 @@ function initializeCron(io) {
   job.start();
 }
 
+function initializeItemsSocket() {
+  const itemsIO = io.of('/items');
+  itemsIO.on('connection', function(socket) {
+    socket.on('init-items', function() {
+      itemsIO.emit('items', itemsDataService.get());
+    });
+    socket.on('unlock-items', function(unlockedItems) {
+      itemsDataService.unlockItems(unlockedItems)
+      itemsIO.emit('items', itemsDataService.get());
+    });
+    socket.on('buy-item', function(playerName, itemId) {
+      itemsDataService.buyItem(playerName, itemId);
+      itemsIO.emit('items', itemsDataService.get());
+    });
+    socket.on('sell-item', function(playerName, itemId) {
+      itemsDataService.sellItem(playerName, itemId);
+      itemsIO.emit('items', itemsDataService.get());
+    });
+  });
+  return itemsIO;
+}
+
+
 function initializeBattleGoalSocket() {
   const battleGoalIO = io.of('/battle-goal');
   battleGoalIO.on('connection', function(socket) {
-    socket.on('select-goal', function(playerName,goalName) {
-      battleGoalDataService.selectGoal(playerName,goalName).then(function() {
+    socket.on('select-goal', function(playerName, goalName) {
+      battleGoalDataService.selectGoal(playerName, goalName).then(function() {
         battleGoalIO.emit('goals', battleGoalDataService.get());
       });
     });
@@ -54,9 +78,11 @@ async function main() {
 
   await battleGoalDataService.initialize();
   await schedulerDataService.initialize();
+  await itemsDataService.initialize();
 
   const battleGoalIO = initializeBattleGoalSocket();
   const schedulerIO = initializeSchedulerSocket();
+  const itemsIO = initializeItemsSocket();
   initializeCron(schedulerIO);
 
   http.listen(3000, function() {

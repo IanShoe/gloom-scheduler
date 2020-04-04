@@ -16,7 +16,7 @@
 
 <body>
   <div id="app" class="container-fluid" v-cloak>
-    <h3 class="header">Choose Your Player</h3>
+    <h3 class="centered">Choose Your Player</h3>
     <div class="row player-select-container">
       <div class="col-sm player-column" v-for="player in players">
         <span class="badge badge-pill" v-bind:class="[player.class, {selected: player.selected}]" v-on:click="selectPlayer(player)">

@@ -1,0 +1,45 @@
+.item-list {
+  list-style: none;
+  padding-left: 0;
+  overflow: hidden;
+}
+
+.item-card {
+  float: left;
+  height: 260px;
+  margin: 10px;
+  position: relative;
+  transition: all .25s ease;
+  width: 175px;
+}
+
+.item-card.tapped img {
+  opacity: .5;
+}
+
+.item-card .item-remove {
+  cursor: pointer;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
+
+.item-card img {
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all .25s ease;
+  width: 100%;
+}
+
+.item-card img:hover {
+  box-shadow: 0px 0px 10px #00a0ff;
+}
+
+.item-control {
+  margin: 10px 0;
+}
+
+.item-control button.btn {
+  box-shadow: none !important;
+  outline: none;
+}
