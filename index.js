@@ -1,12 +1,14 @@
 const CronJob = require('cron').CronJob;
 const express = require('express');
+
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-const schedulerDataService = require('./data-services/scheduler-data-service.js');
+const apiRouter = require('./routers/api-router');
 const battleGoalDataService = require('./data-services/battle-goals-data-service.js');
 const itemsDataService = require('./data-services/items-data-service.js');
+const schedulerDataService = require('./data-services/scheduler-data-service.js');
 
 function initializeCron(io) {
   const job = new CronJob('0 0 0 1 * *', function() {
@@ -78,6 +80,7 @@ async function main() {
   app.get('/', (req, res) => {
     res.redirect('/scheduler.html');
   });
+  app.use('/api', apiRouter);
 
   await battleGoalDataService.initialize();
   await schedulerDataService.initialize();

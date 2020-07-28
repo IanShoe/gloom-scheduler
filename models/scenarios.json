@@ -1,0 +1,1893 @@
+{
+  "scenarios": [{
+    "id": 1,
+    "name": "Black Barrow",
+    "coordinates": {
+      "name": "G-10",
+      "x": 47.42,
+      "y": 41.6
+    },
+    "pages": [3],
+    "chapter_id": 1,
+    "links_to": [2],
+    "quests": [1],
+    "treasures": {
+      "7": "Random Side Scenario"
+    },
+    "achievements_awarded": ["PFS"]
+  }, {
+    "id": 2,
+    "name": "Barrow Lair",
+    "coordinates": {
+      "name": "G-11",
+      "x": 51.75,
+      "y": 41
+    },
+    "pages": [4, 5],
+    "requirements": "First Steps (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PFS"]
+    }],
+    "chapter_id": 1,
+    "links_to": [3, 4],
+    "linked_from": [1],
+    "quests": [1],
+    "treasures": {
+      "67": "Gain 10 Gold"
+    },
+    "rewards": ["10 gold each", "+1 prosperity"]
+  }, {
+    "id": 3,
+    "name": "Inox Encampment",
+    "coordinates": {
+      "name": "G-3",
+      "x": 14.57,
+      "y": 43.585
+    },
+    "pages": [5, 6],
+    "requirements": "The Merchant Flees (Global) INCOMPLETE",
+    "required_by": [{
+      "incomplete": ["GTMF"]
+    }],
+    "blocks_on": [{
+      "complete": ["GTMF"]
+    }],
+    "chapter_id": 2,
+    "links_to": [8, 9],
+    "linked_from": [2],
+    "quests": [2],
+    "treasures": {
+      "65": "\"Horned Helm\" design (Item 107)"
+    },
+    "region_ids": [2],
+    "achievements_awarded": ["PJP"],
+    "rewards": ["15 gold each", "+1 prosperity"]
+  }, {
+    "id": 4,
+    "name": "Crypt of the Damned",
+    "coordinates": {
+      "name": "E-11",
+      "x": 47.82,
+      "y": 31.19
+    },
+    "pages": [7],
+    "links_to": [6, 5],
+    "linked_from": [2],
+    "quests": [3],
+    "treasures": {
+      "38": "\"Ring of Skulls\" design (Item 123)",
+      "46": "Suffer 3 damage and gain POISON"
+    },
+    "region_ids": [7]
+  }, {
+    "id": 5,
+    "name": "Ruinous Crypt",
+    "coordinates": {
+      "name": "D-6",
+      "x": 28.22,
+      "y": 26.58
+    },
+    "pages": [8],
+    "chapter_id": 3,
+    "links_to": [14, 19, 10],
+    "linked_from": [4],
+    "quests": [4],
+    "treasures": {
+      "4": "Gain 15 Gold",
+      "28": "Gain 15 Gold"
+    },
+    "region_ids": [7]
+  }, {
+    "id": 6,
+    "name": "Decaying Crypt",
+    "coordinates": {
+      "name": "F-10",
+      "x": 44.05,
+      "y": 38.3
+    },
+    "pages": [9, 10],
+    "chapter_id": 2,
+    "links_to": [8],
+    "linked_from": [4],
+    "quests": [3],
+    "treasures": {
+      "50": "Gain \"Second Skin\" (Item 101)"
+    },
+    "region_ids": [7],
+    "achievements_awarded": ["PJP", "PDB"],
+    "rewards": ["5 gold each"]
+  }, {
+    "id": 7,
+    "name": "Vibrant Grotto",
+    "coordinates": {
+      "name": "C-12",
+      "x": 57.76,
+      "y": 19.85
+    },
+    "pages": [10, 11],
+    "requirements": "The Power of Enhancement (Global) and The Merchant Flees (Global) COMPLETE",
+    "required_by": [{
+      "complete": ["GTPE", "GTMF"]
+    }],
+    "chapter_id": 2,
+    "links_to": [20],
+    "linked_from": [8],
+    "quests": [9],
+    "region_ids": [5]
+  }, {
+    "id": 8,
+    "name": "Gloomhaven Warehouse",
+    "coordinates": {
+      "name": "C-18",
+      "x": 83.98,
+      "y": 18.1
+    },
+    "pages": [12],
+    "requirements": "Jekserah’s Plans (Party) COMPLETE and The Dead Invade (Global) INCOMPLETE",
+    "required_by": [{
+      "complete": ["PJP"],
+      "incomplete": ["GTDI"]
+    }],
+    "blocks_on": [{
+      "complete": ["GTDI"]
+    }],
+    "chapter_id": 2,
+    "links_to": [7, 13, 14],
+    "linked_from": [3, 6],
+    "quests": [6],
+    "treasures": {
+      "51": "Random Side Scenario"
+    },
+    "region_ids": [1],
+    "achievements_awarded": ["GTMF"],
+    "rewards": ["+2 reputation"]
+  }, {
+    "id": 9,
+    "name": "Diamond Mine",
+    "coordinates": {
+      "name": "L-2",
+      "x": 10.5,
+      "y": 70.65
+    },
+    "pages": [13],
+    "requirements": "The Merchant Flees (Global) INCOMPLETE",
+    "required_by": [{
+      "incomplete": ["GTMF"]
+    }],
+    "blocks_on": [{
+      "complete": ["GTMF"]
+    }],
+    "chapter_id": 2,
+    "links_to": [11, 12],
+    "linked_from": [3],
+    "quests": [7],
+    "region_ids": [4],
+    "achievements_awarded": ["GTDI"],
+    "rewards": ["20 gold each", "+1 prosperity"]
+  }, {
+    "id": 10,
+    "name": "Plane of Elemental Power",
+    "coordinates": {
+      "name": "L-2",
+      "x": 31.177,
+      "y": 23.56
+    },
+    "pages": [14],
+    "requirements": "The Rift Neutralized (Global) INCOMPLETE",
+    "required_by": [{
+      "incomplete": ["GTRN"]
+    }],
+    "blocks_on": [{
+      "complete": ["GTRN"]
+    }],
+    "chapter_id": 3,
+    "links_to": [21, 22],
+    "linked_from": [5],
+    "quests": [8],
+    "treasures": {
+      "11": "Random Item Design"
+    },
+    "achievements_awarded": ["PADE"]
+  }, {
+    "id": 11,
+    "name": "Gloomhaven Square A",
+    "coordinates": {
+      "name": "B-16",
+      "x": 76.4,
+      "y": 14.65
+    },
+    "pages": [15, 16],
+    "requirements": "End of the Invasion (Global) INCOMPLETE",
+    "required_by": [{
+      "incomplete": ["GEOI"]
+    }],
+    "blocks_on": [{
+      "complete": ["GEOI"]
+    }],
+    "chapter_id": 2,
+    "links_to": [16, 18],
+    "linked_from": [9],
+    "quests": [10],
+    "treasures": {
+      "5": "Gain \"Chainmail\" (Item 023)"
+    },
+    "region_ids": [1],
+    "achievements_awarded": ["GCRE", "GEOI"],
+    "rewards": ["15 gold each", "-2 reputation", "+2 prosperity", "“Skullbane Axe” design (Item 113)"]
+  }, {
+    "id": 12,
+    "name": "Gloomhaven Square B",
+    "coordinates": {
+      "name": "B-16",
+      "x": 76.4,
+      "y": 14.65
+    },
+    "pages": [16, 17],
+    "requirements": "End of the Invasion (Global) INCOMPLETE",
+    "required_by": [{
+      "incomplete": ["GEOI"]
+    }],
+    "blocks_on": [{
+      "complete": ["GEOI"]
+    }],
+    "chapter_id": 2,
+    "links_to": [16, 28, 18],
+    "linked_from": [9],
+    "quests": [11],
+    "treasures": {
+      "34": "Gain \"Amulet of Life\" (Item 024)"
+    },
+    "region_ids": [1],
+    "achievements_awarded": ["GEOI"],
+    "rewards": ["+4 reputation", "“Skullbane Axe” design (Item 113)"]
+  }, {
+    "id": 13,
+    "name": "Temple of the Seer",
+    "coordinates": {
+      "name": "N-3",
+      "x": 18.22,
+      "y": 84.42
+    },
+    "pages": [18],
+    "choices": [15, 17, 20],
+    "chapter_id": 2,
+    "links_to": [15, 17, 20],
+    "linked_from": [8],
+    "quests": [12],
+    "treasures": {
+      "10": "Gain 10 Experience"
+    },
+    "region_ids": [4]
+  }, {
+    "id": 14,
+    "name": "Frozen Hollow",
+    "coordinates": {
+      "name": "C-10",
+      "x": 47.55,
+      "y": 19.33
+    },
+    "pages": [19, 20],
+    "linked_from": [5, 8, 18],
+    "quests": [13],
+    "treasures": {
+      "26": "Gain 20 Gold"
+    },
+    "region_ids": [5],
+    "achievements_awarded": ["GTPE"]
+  }, {
+    "id": 15,
+    "name": "Shrine of Strength",
+    "coordinates": {
+      "name": "B-11",
+      "x": 51.17,
+      "y": 16.8
+    },
+    "pages": [20, 21],
+    "chapter_id": 2,
+    "linked_from": [13, 39],
+    "quests": [14],
+    "region_ids": [5],
+    "rewards": ["20 experience each"]
+  }, {
+    "id": 16,
+    "name": "Mountain Pass",
+    "coordinates": {
+      "name": "B-6",
+      "x": 28.45,
+      "y": 18.92
+    },
+    "pages": [22],
+    "links_to": [25, 24],
+    "linked_from": [11, 12, 20],
+    "quests": [15],
+    "treasures": {
+      "1": "Random Item Design"
+    },
+    "region_ids": [5]
+  }, {
+    "id": 17,
+    "name": "Lost Island",
+    "coordinates": {
+      "name": "K-17",
+      "x": 84.35,
+      "y": 59.235
+    },
+    "pages": [23],
+    "chapter_id": 2,
+    "linked_from": [13],
+    "quests": [16],
+    "treasures": {
+      "71": "Random Side Scenario"
+    },
+    "treasures_from": [37],
+    "region_ids": [6],
+    "rewards": ["25 gold each"]
+  }, {
+    "id": 18,
+    "name": "Abandoned Sewers",
+    "coordinates": {
+      "name": "C-14",
+      "x": 68.298,
+      "y": 20.895
+    },
+    "pages": [24],
+    "chapter_id": 4,
+    "links_to": [23, 14, 43, 26],
+    "linked_from": [11, 12, 20],
+    "quests": [17],
+    "treasures": {
+      "63": "Random Item Design"
+    },
+    "region_ids": [1]
+  }, {
+    "id": 19,
+    "name": "Forgotten Crypt",
+    "coordinates": {
+      "name": "M-7",
+      "x": 34.6,
+      "y": 74.64
+    },
+    "pages": [25, 26],
+    "requirements": "The Power of Enhancement (Global) COMPLETE",
+    "required_by": [{
+      "complete": ["GTPE"]
+    }],
+    "chapter_id": 3,
+    "links_to": [27],
+    "linked_from": [5],
+    "quests": [18],
+    "treasures": {
+      "17": "Gain 20 Gold"
+    },
+    "region_ids": [3, 7],
+    "achievements_awarded": ["PSC"],
+    "rewards": ["+1 prosperity"]
+  }, {
+    "id": 20,
+    "name": "Necromancers Sanctum",
+    "coordinates": {
+      "name": "H-13",
+      "x": 59,
+      "y": 44.9
+    },
+    "pages": [26, 27],
+    "requirements": "The Merchant Flees (Global) COMPLETE",
+    "required_by": [{
+      "complete": ["GTMF"]
+    }],
+    "chapter_id": 2,
+    "links_to": [28, 16, 18],
+    "linked_from": [7, 13],
+    "quests": [9],
+    "treasures": {
+      "60": "Gain \"Skullbane Axe\" (Item 113)"
+    },
+    "rewards": ["20 gold each", "+2 reputation", "+1 prosperity"]
+  }, {
+    "id": 21,
+    "name": "Infernal Throne",
+    "coordinates": {
+      "name": "C-7",
+      "x": 34.25,
+      "y": 22.6
+    },
+    "pages": [28, 29],
+    "requirements": "The Rift Neutralized (Global) INCOMPLETE",
+    "required_by": [{
+      "incomplete": ["GTRN"]
+    }],
+    "blocks_on": [{
+      "complete": ["GTRN"]
+    }],
+    "chapter_id": 3,
+    "linked_from": [10],
+    "quests": [19],
+    "treasures": {
+      "15": "Gain \"Pendant of Dark Pacts\" (Item 045)"
+    },
+    "achievements_awarded": ["GTRN", "GAR2"],
+    "rewards": ["50 gold each", "+1 prosperity", "Add City Event 78 to the deck"]
+  }, {
+    "id": 22,
+    "name": "Temple of Elements",
+    "coordinates": {
+      "name": "K-8",
+      "x": 39.87,
+      "y": 64.25
+    },
+    "pages": [29, 30],
+    "requirements": "A Demon’s Errand (Party) or Following Clues (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PADE"]
+    }, {
+      "complete": ["PFC"]
+    }],
+    "links_to": [35, 31, 36],
+    "linked_from": [10, 26],
+    "quests": [20, 28],
+    "treasures": {
+      "21": "Suffer 5 Damage"
+    },
+    "achievements_awarded": ["GAR"]
+  }, {
+    "id": 23,
+    "name": "Deep Ruins",
+    "coordinates": {
+      "name": "C-15",
+      "x": 73.4,
+      "y": 19.85
+    },
+    "pages": [31, 32],
+    "chapter_id": 4,
+    "links_to": [26],
+    "linked_from": [18],
+    "quests": [21],
+    "treasures": {
+      "39": "Suffer 5 damage",
+      "72": "\"Fueled Falchion\" design (Item 116)"
+    },
+    "region_ids": [1],
+    "achievements_awarded": ["GAT", "PTR"]
+  }, {
+    "id": 24,
+    "name": "Echo Chamber",
+    "coordinates": {
+      "name": "C-6",
+      "x": 25.05,
+      "y": 19.67
+    },
+    "pages": [32, 33],
+    "chapter_id": 10,
+    "links_to": [32, 30],
+    "linked_from": [16],
+    "quests": [22],
+    "treasures": {
+      "70": "Random Side Scenario"
+    },
+    "region_ids": [5],
+    "achievements_awarded": ["PTVC"]
+  }, {
+    "id": 25,
+    "name": "Icecrag Ascent",
+    "coordinates": {
+      "name": "A-5",
+      "x": 20.87,
+      "y": 13.07
+    },
+    "pages": [34, 35],
+    "chapter_id": 9,
+    "links_to": [33, 34],
+    "linked_from": [16],
+    "quests": [15],
+    "treasures": {
+      "58": "Gain \"Drakescale Helm\" (Item 108)"
+    },
+    "region_ids": [5],
+    "achievements_awarded": ["PTDC"],
+    "prompt": "dragonChoice"
+  }, {
+    "id": 26,
+    "name": "Ancient Cistern",
+    "coordinates": {
+      "name": "D-15",
+      "x": 73.5,
+      "y": 23.3
+    },
+    "pages": [35, 36],
+    "requirements": "Water-Breathing (Global) or Through the Ruins (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["GWB"]
+    }, {
+      "complete": ["PTR"]
+    }],
+    "chapter_id": 4,
+    "links_to": [22],
+    "linked_from": [18],
+    "quests": [17],
+    "treasures": {
+      "66": "Gain \"Volatile Bomb\" (Item 033)"
+    },
+    "region_ids": [1],
+    "achievements_awarded": ["PFC"],
+    "rewards": ["10 gold each", "+1 reputation", "+2 prosperity"]
+  }, {
+    "id": 27,
+    "name": "Ruinous Rift",
+    "coordinates": {
+      "name": "E-6",
+      "x": 29.22,
+      "y": 30.6
+    },
+    "pages": [37],
+    "requirements": "Artifact: Lost INCOMPLETE (Global) and Stonebreaker’s Censer (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PSC"],
+      "incomplete": ["GAL"]
+    }],
+    "chapter_id": 3,
+    "linked_from": [19],
+    "quests": [18],
+    "achievements_awarded": ["GTRN"],
+    "rewards": ["+1 prosperity", "100 gold each This money must immediately be spent on enhancements"]
+  }, {
+    "id": 28,
+    "name": "Outer Ritual Chamber",
+    "coordinates": {
+      "name": "E-4",
+      "x": 18.15,
+      "y": 32.1
+    },
+    "pages": [38],
+    "requirements": "Dark Bounty (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PDB"]
+    }],
+    "chapter_id": 2,
+    "links_to": [29],
+    "linked_from": [12, 20],
+    "quests": [3],
+    "treasures": {
+      "32": "Random Item Design"
+    },
+    "region_ids": [2],
+    "achievements_awarded": ["PAI"]
+  }, {
+    "id": 29,
+    "name": "Sanctuary of Gloom",
+    "coordinates": {
+      "name": "E-3",
+      "x": 13.9,
+      "y": 32.5
+    },
+    "pages": [39],
+    "requirements": "An Invitation (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PAI"]
+    }],
+    "chapter_id": 2,
+    "linked_from": [28],
+    "quests": [3],
+    "treasures": {
+      "41": "Gain \"Black Knife\" (Item 053)"
+    },
+    "region_ids": [2],
+    "achievements_awarded": ["GTED"],
+    "rewards": ["15 experience each"]
+  }, {
+    "id": 30,
+    "name": "Shrine of the Depths",
+    "coordinates": {
+      "name": "N-15",
+      "x": 72.85,
+      "y": 79.37
+    },
+    "pages": [40, 41],
+    "requirements": "The Voice’s Command (Party)",
+    "required_by": [{
+      "complete": ["PTVC"]
+    }],
+    "blocks_on": [{
+      "lost": ["PTVC"]
+    }],
+    "chapter_id": 10,
+    "links_to": [42],
+    "linked_from": [24],
+    "quests": [23],
+    "region_ids": [6],
+    "achievements_awarded": ["PTSV"],
+    "rewards": ["10 gold each"]
+  }, {
+    "id": 31,
+    "name": "Plane of Night",
+    "coordinates": {
+      "name": "A-16",
+      "x": 76.46,
+      "y": 8.912
+    },
+    "pages": [41, 42],
+    "requirements": "The Power of Enhancement (Global) and Artifact: Recovered (Global) COMPLETE",
+    "required_by": [{
+      "hidden_when": ["GAR2"],
+      "complete": ["GTPE", "GAR"]
+    }, {
+      "hidden_when": ["GAL", "GAR", "GAC"],
+      "complete": ["GTPE", "GAR2"]
+    }],
+    "links_to": [39, 37, 38, 43],
+    "linked_from": [22],
+    "quests": [24],
+    "treasures": {
+      "69": "Gain \"Robes of Summoning\" (Item 100)"
+    },
+    "region_ids": [1],
+    "achievements_awarded": ["GAC"]
+  }, {
+    "id": 32,
+    "name": "Decrepit Wood",
+    "coordinates": {
+      "name": "L-11",
+      "x": 54.42,
+      "y": 67.9
+    },
+    "pages": [43],
+    "requirements": "The Voice’s Command (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PTVC"]
+    }],
+    "blocks_on": [{
+      "lost": ["PTVC"]
+    }],
+    "chapter_id": 10,
+    "links_to": [33, 40],
+    "linked_from": [24],
+    "quests": [25],
+    "region_ids": [3]
+  }, {
+    "id": 33,
+    "name": "Savvas Armory",
+    "coordinates": {
+      "name": "A-7",
+      "x": 30.53,
+      "y": 10.3
+    },
+    "pages": [44],
+    "requirements": "The Voice’s Command (Party) or The Drake’s Command (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PTVC"]
+    }, {
+      "complete": ["PTDC"]
+    }],
+    "blocks_on": [{
+      "lost": ["PTVC", "PTDC"]
+    }],
+    "linked_from": [25, 32],
+    "quests": [25, 26, 27],
+    "region_ids": [5],
+    "achievements_awarded": ["PTVT", "PTDT"],
+    "prompt": "dragonChoice"
+  }, {
+    "id": 34,
+    "name": "Scorched Summit",
+    "coordinates": {
+      "name": "A-4",
+      "x": 17.01,
+      "y": 9.27
+    },
+    "pages": [45],
+    "requirements": "The Drake’s Command (Party) COMPLETE and The Drake Aided (Global) INCOMPLETE",
+    "required_by": [{
+      "complete": ["PTDC"],
+      "incomplete": ["GTDA"]
+    }],
+    "blocks_on": [{
+      "complete": ["GTDA"]
+    }],
+    "chapter_id": 9,
+    "linked_from": [25],
+    "quests": [27],
+    "treasures": {
+      "23": "Gain \"Drakescale Armor\" (Item 103)"
+    },
+    "region_ids": [5],
+    "achievements_awarded": ["GTDS"],
+    "achievements_lost": ["PTDC"],
+    "rewards": ["20 gold each", "+2 reputation", "+1 prosperity"]
+  }, {
+    "id": 35,
+    "name": "Gloomhaven Battlements A",
+    "coordinates": {
+      "name": "A-14",
+      "x": 67.2,
+      "y": 9.42
+    },
+    "pages": [46, 47],
+    "requirements": "A Demon’s Errand (Party) COMPLETE and The Rift Neutralized (Global) INCOMPLETE",
+    "required_by": [{
+      "complete": ["PADE"],
+      "incomplete": ["GTRN"]
+    }],
+    "blocks_on": [{
+      "complete": ["GTRN"]
+    }, {
+      "lost": ["PADE"]
+    }],
+    "chapter_id": 3,
+    "links_to": [45],
+    "linked_from": [22],
+    "quests": [28],
+    "treasures": {
+      "61": "Gain \"Versatile Dagger\" (Item 040)"
+    },
+    "region_ids": [1],
+    "achievements_awarded": ["GCRD", "GAL"],
+    "achievements_lost": ["PADE"],
+    "rewards": ["30 gold each", "5 reputation", "-2 prosperity", "Add City Event 79 to the deck"]
+  }, {
+    "id": 36,
+    "name": "Gloomhaven Battlements B",
+    "coordinates": {
+      "name": "B-14",
+      "x": 67.2,
+      "y": 9.42
+    },
+    "pages": [47, 48],
+    "requirements": "A Demon’s Errand (Party) COMPLETE and The Rift Neutralized (Global) INCOMPLETE",
+    "required_by": [{
+      "complete": ["PADE"],
+      "incomplete": ["GTRN"]
+    }],
+    "blocks_on": [{
+      "complete": ["GTRN"]
+    }, {
+      "lost": ["PADE"]
+    }],
+    "chapter_id": 3,
+    "linked_from": [22],
+    "quests": [28],
+    "treasures": {
+      "2": "Gain \"Tower Shield\" (Item 032)"
+    },
+    "region_ids": [1],
+    "achievements_awarded": ["GTRN"],
+    "achievements_lost": ["PADE"],
+    "rewards": ["10 gold each", "+4 reputation", "Add City Event 78 to the deck"]
+  }, {
+    "id": 37,
+    "name": "Doom Trench",
+    "coordinates": {
+      "name": "G-18",
+      "x": 85.36,
+      "y": 39.795
+    },
+    "pages": [49],
+    "requirements": "Water-Breathing (Global) COMPLETE",
+    "required_by": [{
+      "complete": ["GWB"]
+    }],
+    "chapter_id": 6,
+    "links_to": [47],
+    "linked_from": [31],
+    "quests": [30],
+    "treasures": {
+      "49": "New Scenario: Lost Island (Scenario 17 at K-17)"
+    },
+    "treasures_to": {
+      "49": 17
+    },
+    "region_ids": [6],
+    "achievements_awarded": ["PTTT"]
+  }, {
+    "id": 38,
+    "name": "Slave Pens",
+    "coordinates": {
+      "name": "G-2",
+      "x": 11.15,
+      "y": 43
+    },
+    "pages": [50, 51],
+    "chapter_id": 7,
+    "links_to": [48, 44],
+    "linked_from": [31],
+    "quests": [31],
+    "treasures": {
+      "29": "Gain \"Endurance Footwraps\" (Item 097)"
+    },
+    "region_ids": [2],
+    "achievements_awarded": ["PRA"],
+    "rewards": ["+1 reputation"]
+  }, {
+    "id": 39,
+    "name": "Treacherous Divide",
+    "coordinates": {
+      "name": "B-11",
+      "x": 49.9,
+      "y": 12.73
+    },
+    "pages": [51, 52],
+    "chapter_id": 8,
+    "links_to": [46, 15],
+    "linked_from": [31],
+    "quests": [32],
+    "treasures": {
+      "73": "Random Item Design"
+    },
+    "region_ids": [5],
+    "achievements_awarded": ["PATD"],
+    "rewards": ["10 experience each"]
+  }, {
+    "id": 40,
+    "name": "Ancient Defense Network",
+    "coordinates": {
+      "name": "F-12",
+      "x": 57,
+      "y": 35.1
+    },
+    "pages": [53, 54],
+    "requirements": "The Voice’s Command (Party) and The Voice’s Treasure (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PTVC", "PTVT"]
+    }],
+    "blocks_on": [{
+      "lost": ["PTVC"]
+    }],
+    "chapter_id": 10,
+    "links_to": [41],
+    "linked_from": [32],
+    "quests": [25],
+    "treasures": {
+      "47": "Gain \"Steam Armor\" (Item 104)"
+    },
+    "region_ids": [5],
+    "achievements_awarded": ["GAT"]
+  }, {
+    "id": 41,
+    "name": "Timeworn Tomb",
+    "coordinates": {
+      "name": "F-13",
+      "x": 61.27,
+      "y": 34.9
+    },
+    "pages": [54, 55],
+    "requirements": "The Voice’s Command (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PTVC"]
+    }],
+    "blocks_on": [{
+      "lost": ["PTVC"]
+    }],
+    "chapter_id": 10,
+    "linked_from": [40],
+    "quests": [25],
+    "treasures": {
+      "24": "Suffer 5 damage"
+    },
+    "region_ids": [5],
+    "achievements_awarded": ["GTVF"],
+    "rewards": ["50 gold each", "25 experience each", "2 ✔ each", "+2 prosperity"]
+  }, {
+    "id": 42,
+    "name": "Realm of the Voice",
+    "coordinates": {
+      "name": "C-5",
+      "x": 19.6,
+      "y": 19.4
+    },
+    "pages": [56],
+    "requirements": "The Scepter and the Voice (Party) COMPLETE and The Voice Freed (Global) INCOMPLETE",
+    "required_by": [{
+      "complete": ["PTSV"],
+      "incomplete": ["GTVF"]
+    }],
+    "blocks_on": [{
+      "complete": ["GTVF"]
+    }],
+    "chapter_id": 10,
+    "linked_from": [30],
+    "quests": [33],
+    "treasures": {
+      "30": "Gain 1 ✔",
+      "55": "Gain 1 ✔"
+    },
+    "region_ids": [5],
+    "achievements_awarded": ["GTVS"],
+    "achievements_lost": ["PTVC"]
+  }, {
+    "id": 43,
+    "name": "Drake Nest",
+    "coordinates": {
+      "name": "D-4",
+      "x": 15.13,
+      "y": 29.3
+    },
+    "pages": [57, 58],
+    "requirements": "The Power of Enhancement (Global) COMPLETE",
+    "required_by": [{
+      "complete": ["GTPE"]
+    }],
+    "linked_from": [18, 31],
+    "quests": [34],
+    "treasures": {
+      "35": "Gain \"Drakescale Boots\" (Item 098)"
+    },
+    "region_ids": [2],
+    "achievements_awarded": ["GWB"]
+  }, {
+    "id": 44,
+    "name": "Tribal Assault",
+    "coordinates": {
+      "name": "F-3",
+      "x": 15.56,
+      "y": 37.9
+    },
+    "pages": [58, 59],
+    "requirements": "Redthorn’s Aid (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PRA"]
+    }],
+    "chapter_id": 7,
+    "linked_from": [38],
+    "quests": [35],
+    "region_ids": [2],
+    "rewards": ["Open envelope 4.svg", "+2 reputation"]
+  }, {
+    "id": 45,
+    "name": "Rebel Swamp",
+    "coordinates": {
+      "name": "M-9",
+      "x": 41.7,
+      "y": 72.25
+    },
+    "pages": [60],
+    "requirements": "City Rule: Demonic (Global) COMPLETE",
+    "required_by": [{
+      "complete": ["GCRD"]
+    }],
+    "chapter_id": 5,
+    "links_to": [49, 50],
+    "linked_from": [35],
+    "quests": [36],
+    "treasures": {
+      "74": "Random Item Design"
+    },
+    "region_ids": [3],
+    "rewards": ["20 gold each", "-2 reputation"]
+  }, {
+    "id": 46,
+    "name": "Nightmare Peak",
+    "coordinates": {
+      "name": "A-11",
+      "x": 49.85,
+      "y": 7.34
+    },
+    "pages": [61],
+    "requirements": "Across the Divide (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PATD"]
+    }],
+    "chapter_id": 8,
+    "links_to": [51],
+    "linked_from": [39],
+    "quests": [32],
+    "treasures": {
+      "48": "Gain 30 gold"
+    },
+    "region_ids": [5],
+    "achievements_awarded": ["GEOC"]
+  }, {
+    "id": 47,
+    "name": "Lair of the Unseeing Eye",
+    "coordinates": {
+      "name": "H-18",
+      "x": 85.9,
+      "y": 43.47
+    },
+    "pages": [62],
+    "requirements": "Through the Trench (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PTTT"]
+    }],
+    "chapter_id": 6,
+    "links_to": [51],
+    "linked_from": [37],
+    "quests": [30],
+    "treasures": {
+      "18": "Gain 15 gold",
+      "57": "Gain 15 gold"
+    },
+    "region_ids": [6],
+    "achievements_awarded": ["GEOC"]
+  }, {
+    "id": 48,
+    "name": "Shadow Weald",
+    "coordinates": {
+      "name": "E-1",
+      "x": 5.9,
+      "y": 32.7
+    },
+    "pages": [63],
+    "requirements": "Redthorn’s Aid (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PRA"]
+    }],
+    "chapter_id": 7,
+    "links_to": [51],
+    "linked_from": [38],
+    "quests": [31],
+    "treasures": {
+      "64": "Gain 30 gold"
+    },
+    "region_ids": [2],
+    "achievements_awarded": ["GEOC"]
+  }, {
+    "id": 49,
+    "name": "Rebels Stand",
+    "coordinates": {
+      "name": "N-7",
+      "x": 34.8,
+      "y": 80.15
+    },
+    "pages": [64],
+    "requirements": "City Rule: Demonic (Global) COMPLETE",
+    "required_by": [{
+      "complete": ["GCRD"]
+    }],
+    "blocks_on": [{
+      "lost": ["GCRD"]
+    }],
+    "chapter_id": 5,
+    "linked_from": [45],
+    "quests": [37],
+    "treasures": {
+      "44": "Random Side Scenario"
+    },
+    "region_ids": [3],
+    "achievements_awarded": ["GAOO"],
+    "rewards": ["50 gold each", "-3 reputation"]
+  }, {
+    "id": 50,
+    "name": "Ghost Forrest",
+    "coordinates": {
+      "name": "C-17",
+      "x": 79.48,
+      "y": 14.65
+    },
+    "pages": [65, 66],
+    "requirements": "City Rule: Demonic (Global) COMPLETE and Annihilation of Order (Global) INCOMPLETE",
+    "required_by": [{
+      "complete": ["GCRD"],
+      "incomplete": ["GAOO"]
+    }],
+    "blocks_on": [{
+      "complete": ["GAOO"]
+    }],
+    "chapter_id": 5,
+    "linked_from": [45],
+    "quests": [38],
+    "region_ids": [1],
+    "achievements_awarded": ["GCRM"],
+    "rewards": ["+3 reputation", "-2 prosperity"]
+  }, {
+    "id": 51,
+    "name": "The Void",
+    "coordinates": {
+      "name": "A-15",
+      "x": 72.3,
+      "y": 9.15
+    },
+    "pages": [66, 67],
+    "requirements": "End of Corruption (Global) x3 COMPLETE",
+    "required_by": [{
+      "complete": ["GEOC3"]
+    }],
+    "linked_from": [46, 47, 48],
+    "quests": [39],
+    "treasures": {
+      "56": "Gain \"Star Earring\" (Item 069)"
+    },
+    "region_ids": [1],
+    "achievements_awarded": ["GEOG"],
+    "rewards": ["+5 reputation", "+5 prosperity", "Add City Event 81 to the deck", "Add Road Event 69 to the deck"]
+  }, {
+    "id": 52,
+    "name": "Noxious Cellar",
+    "coordinates": {
+      "name": "D-14",
+      "x": 65.7,
+      "y": 21.643
+    },
+    "is_side": true,
+    "pages": [68, 69],
+    "requirements": "“Seeker of Xorn” personal quest",
+    "chapter_id": 11,
+    "links_to": [53],
+    "region_ids": [1],
+    "cards": ["Q-510-Seeker of Xorn"]
+  }, {
+    "id": 53,
+    "name": "Crypt Basement",
+    "coordinates": {
+      "name": "F-11",
+      "x": 51.86,
+      "y": 34.1
+    },
+    "pages": [69, 70],
+    "requirements": "“Seeker of Xorn” personal quest",
+    "chapter_id": 11,
+    "links_to": [54],
+    "linked_from": [52],
+    "treasures": {
+      "31": "Random Item Design"
+    },
+    "region_ids": [7],
+    "cards": ["Q-510-Seeker of Xorn"],
+    "rewards": ["The Seeker of Xorn receives: “Staff of Xorn” (Item 114) The Seeker cannot sell this item."]
+  }, {
+    "id": 54,
+    "name": "Palace of Ice",
+    "coordinates": {
+      "name": "D-8",
+      "x": 40.5,
+      "y": 23.34
+    },
+    "pages": [71],
+    "requirements": "“Seeker of Xorn” personal quest, “Staff of Xorn” item equipped",
+    "chapter_id": 11,
+    "linked_from": [53],
+    "treasures": {
+      "25": "Gain 25 gold"
+    },
+    "region_ids": [5],
+    "cards": ["Q-510-Seeker of Xorn"],
+    "rewards": ["Immediately retire the Seeker of Xorn"]
+  }, {
+    "id": 55,
+    "name": "Foggy Thicket",
+    "coordinates": {
+      "name": "G-5",
+      "x": 22.8,
+      "y": 43.15
+    },
+    "is_side": true,
+    "pages": [72],
+    "requirements": "“Take Back the Trees” personal quest",
+    "chapter_id": 11,
+    "links_to": [56],
+    "region_ids": [2],
+    "cards": ["Q-521-Take Back the Trees"],
+    "rewards": ["10 collective gold"]
+  }, {
+    "id": 56,
+    "name": "Bandits Wood",
+    "coordinates": {
+      "name": "G-4",
+      "x": 18.93,
+      "y": 44.67
+    },
+    "pages": [73],
+    "requirements": "“Take Back the Trees” personal quest",
+    "chapter_id": 11,
+    "linked_from": [55],
+    "treasures": {
+      "45": "Random Item Design"
+    },
+    "region_ids": [2],
+    "cards": ["Q-521-Take Back the Trees"],
+    "rewards": ["“Take Back the Trees” quest complete", "Open envelope 4.svg", "10 gold each", "+2 reputation"]
+  }, {
+    "id": 57,
+    "name": "Investigation",
+    "coordinates": {
+      "name": "D-14",
+      "x": 65.8,
+      "y": 24.5
+    },
+    "is_side": true,
+    "pages": [74],
+    "requirements": "“Vengeance” personal quest",
+    "chapter_id": 11,
+    "links_to": [58],
+    "treasures": {
+      "3": "Gain \"Splintmail\" (Item 044)",
+      "22": "Random Item Design"
+    },
+    "region_ids": [1],
+    "cards": ["Q-526-Vengeance"],
+    "rewards": ["+1 reputation"]
+  }, {
+    "id": 58,
+    "name": "Bloody Shack",
+    "coordinates": {
+      "name": "E-15",
+      "x": 72.315,
+      "y": 30.105
+    },
+    "pages": [75],
+    "requirements": "“Vengeance” personal quest",
+    "chapter_id": 11,
+    "linked_from": [57],
+    "region_ids": [1],
+    "cards": ["Q-526-Vengeance"],
+    "rewards": ["“Vengeance” quest complete", "Open envelope X", "+2 reputation"]
+  }, {
+    "id": 59,
+    "name": "Forgotten Grove",
+    "coordinates": {
+      "name": "F-1",
+      "x": 4.85,
+      "y": 38.7
+    },
+    "is_side": true,
+    "pages": [76],
+    "requirements": "“Finding the Cure” personal quest",
+    "chapter_id": 11,
+    "links_to": [60],
+    "region_ids": [2],
+    "cards": ["Q-513-Finding the Cure"]
+  }, {
+    "id": 60,
+    "name": "Alchemy Lab",
+    "coordinates": {
+      "name": "B-15",
+      "x": 72.1,
+      "y": 13.5
+    },
+    "pages": [77],
+    "requirements": "“Finding the Cure” personal quest",
+    "chapter_id": 11,
+    "linked_from": [59],
+    "region_ids": [1],
+    "cards": ["Q-513-Finding the Cure"],
+    "rewards": ["“Finding the Cure” quest complete", "Open envelope X", "+1 prosperity"]
+  }, {
+    "id": 61,
+    "name": "Fading Lighthouse",
+    "coordinates": {
+      "name": "N-11",
+      "x": 55.9,
+      "y": 79.6
+    },
+    "is_side": true,
+    "pages": [78, 79],
+    "requirements": "“The Fall of Man” personal quest",
+    "chapter_id": 11,
+    "links_to": [62],
+    "region_ids": [3],
+    "cards": ["Q-529-The Fall of Man"]
+  }, {
+    "id": 62,
+    "name": "Pit of Souls",
+    "coordinates": {
+      "name": "O-11",
+      "x": 57.15,
+      "y": 83.55
+    },
+    "pages": [80],
+    "requirements": "“The Fall of Man” personal quest",
+    "chapter_id": 11,
+    "linked_from": [61],
+    "treasures": {
+      "59": "Random Item Design"
+    },
+    "region_ids": [3],
+    "cards": ["Q-529-The Fall of Man"],
+    "rewards": ["“The Fall of Man” quest complete", "Open envelope 8.svg", "10 experience each"]
+  }, {
+    "id": 63,
+    "name": "Magma Pit",
+    "coordinates": {
+      "name": "M-1",
+      "x": 6.56,
+      "y": 78.15
+    },
+    "is_side": true,
+    "pages": [81],
+    "chapter_id": 12,
+    "treasures": {
+      "12": "Gain \"Magma Waders\" (Item 099)"
+    },
+    "region_ids": [4],
+    "rewards": ["15 gold each"]
+  }, {
+    "id": 64,
+    "name": "Under Water Lagoon",
+    "coordinates": {
+      "name": "K-16",
+      "x": 79.42,
+      "y": 60.63
+    },
+    "is_side": true,
+    "pages": [82],
+    "requirements": "Water-Breathing (Global) COMPLETE",
+    "required_by": [{
+      "complete": ["GWB"]
+    }],
+    "chapter_id": 12,
+    "treasures": {
+      "9": "Gain \"Wave Crest\" (Item 111)"
+    },
+    "region_ids": [6],
+    "rewards": ["10 experience each"]
+  }, {
+    "id": 65,
+    "name": "Sulfur Mine",
+    "coordinates": {
+      "name": "L-5",
+      "x": 24.14,
+      "y": 71.7
+    },
+    "is_side": true,
+    "pages": [83, 84],
+    "chapter_id": 12,
+    "region_ids": [4],
+    "achievements_awarded": ["GAT"],
+    "rewards": ["“Ancient Drill” design (Item 112)"]
+  }, {
+    "id": 66,
+    "name": "Clockwork Cove",
+    "coordinates": {
+      "name": "G-14",
+      "x": 67.7,
+      "y": 41.35
+    },
+    "is_side": true,
+    "pages": [84, 85],
+    "chapter_id": 12,
+    "treasures": {
+      "16": "Gain 10 gold",
+      "36": "\"Rocket Boots\" design (Item 096)"
+    },
+    "region_ids": [5],
+    "achievements_awarded": ["GAT"]
+  }, {
+    "id": 67,
+    "name": "Arcane Library",
+    "coordinates": {
+      "name": "K-2",
+      "x": 10.05,
+      "y": 63.4
+    },
+    "is_side": true,
+    "pages": [86],
+    "chapter_id": 12,
+    "treasures": {
+      "14": "Gain 10 Experience"
+    },
+    "achievements_awarded": ["GAT"],
+    "rewards": ["“Power Core” (Item 132)"]
+  }, {
+    "id": 68,
+    "name": "Toxic Moor",
+    "coordinates": {
+      "name": "N-8",
+      "x": 41.25,
+      "y": 79.5
+    },
+    "is_side": true,
+    "pages": [87],
+    "chapter_id": 12,
+    "treasures": {
+      "33": "Gain \"Weighted Net\" (Item 019)"
+    },
+    "region_ids": [3],
+    "rewards": ["2 “Major Healing Potions” (Item 027)"]
+  }, {
+    "id": 69,
+    "name": "Well of the Unfortunate",
+    "coordinates": {
+      "name": "F-8",
+      "x": 38.2,
+      "y": 34.935
+    },
+    "is_side": true,
+    "pages": [88],
+    "chapter_id": 12,
+    "rewards": ["15 gold each"]
+  }, {
+    "id": 70,
+    "name": "Chained Isle",
+    "coordinates": {
+      "name": "J-17",
+      "x": 79.408,
+      "y": 53.4027
+    },
+    "is_side": true,
+    "pages": [89, 90],
+    "chapter_id": 12,
+    "treasures": {
+      "6": "Gain \"Hooked Chain\" (Item 039)"
+    },
+    "region_ids": [6],
+    "rewards": ["+2 prosperity"]
+  }, {
+    "id": 71,
+    "name": "Windswept Highlands",
+    "coordinates": {
+      "name": "K-5",
+      "x": 27.53,
+      "y": 67.17
+    },
+    "is_side": true,
+    "pages": [90, 91],
+    "chapter_id": 12,
+    "rewards": ["2 “Major Power Potions” (Item 041)"]
+  }, {
+    "id": 72,
+    "name": "Oozing Grove",
+    "coordinates": {
+      "name": "H-12",
+      "x": 54.08,
+      "y": 45.35
+    },
+    "is_side": true,
+    "pages": [92],
+    "chapter_id": 13,
+    "rewards": ["+1 reputation", "+1 prosperity"]
+  }, {
+    "id": 73,
+    "name": "Rockslide Ridge",
+    "coordinates": {
+      "name": "N-5",
+      "x": 27.17,
+      "y": 79.61
+    },
+    "is_side": true,
+    "pages": [93],
+    "chapter_id": 13,
+    "region_ids": [4],
+    "rewards": ["+1 reputation"]
+  }, {
+    "id": 74,
+    "name": "Merchant Ship",
+    "coordinates": {
+      "name": "I-14",
+      "x": 67.35,
+      "y": 52.95
+    },
+    "is_side": true,
+    "pages": [94],
+    "requirements": "High Sea Escort (Party) COMPLETE",
+    "chapter_id": 15,
+    "treasures": {
+      "20": "Random Item Design"
+    },
+    "region_ids": [6],
+    "cards": ["C-76"],
+    "rewards": ["10 gold each", "+2 prosperity"]
+  }, {
+    "id": 75,
+    "name": "Overgrown Graveyard",
+    "coordinates": {
+      "name": "G-12",
+      "x": 60.6,
+      "y": 41.78
+    },
+    "is_side": true,
+    "pages": [95],
+    "requirements": "Grave Job (Party) COMPLETE",
+    "chapter_id": 15,
+    "treasures": {
+      "53": "Random Item Design"
+    },
+    "cards": ["C-77"],
+    "rewards": ["60 gold each"]
+  }, {
+    "id": 76,
+    "name": "Harrower Hive",
+    "coordinates": {
+      "name": "L-3",
+      "x": 17.6,
+      "y": 71.4
+    },
+    "is_side": true,
+    "pages": [96, 97],
+    "requirements": "Bravery",
+    "chapter_id": 13,
+    "treasures": {
+      "75": "Cryptogram Found (See scenario book page 121)"
+    },
+    "region_ids": [4]
+  }, {
+    "id": 77,
+    "name": "Vault of Secrets",
+    "coordinates": {
+      "name": "B-17",
+      "x": 79.45,
+      "y": 10.49
+    },
+    "is_side": true,
+    "pages": [97, 98],
+    "chapter_id": 13,
+    "region_ids": [1],
+    "rewards": ["5 experience each"]
+  }, {
+    "id": 78,
+    "name": "Sacrifice Pit",
+    "coordinates": {
+      "name": "B-14",
+      "x": 65.4,
+      "y": 13.815
+    },
+    "is_side": true,
+    "pages": [99],
+    "chapter_id": 15,
+    "region_ids": [1],
+    "cards": ["C-34"],
+    "rewards": ["+3 reputation"]
+  }, {
+    "id": 79,
+    "name": "Lost Temple",
+    "coordinates": {
+      "name": "K-12",
+      "x": 60.05,
+      "y": 61.5
+    },
+    "is_side": true,
+    "pages": [100, 101],
+    "requirements": "Fish’s Aid (Party) COMPLETE",
+    "chapter_id": 15,
+    "treasures": {
+      "52": "Gain \"Heart of the Betrayer\" (Item 131)"
+    },
+    "region_ids": [3],
+    "cards": ["R-10", "C-71", "C-72"],
+    "rewards": ["15 gold each"]
+  }, {
+    "id": 80,
+    "name": "Vigil Keep",
+    "coordinates": {
+      "name": "K-1",
+      "x": 5.7,
+      "y": 66.58
+    },
+    "is_side": true,
+    "pages": [101, 102],
+    "chapter_id": 14,
+    "region_ids": [4],
+    "cards": ["R-49"],
+    "rewards": ["10 experience each"]
+  }, {
+    "id": 81,
+    "name": "Temple of the Eclipse",
+    "coordinates": {
+      "name": "D-2",
+      "x": 9.12,
+      "y": 27.18
+    },
+    "is_side": true,
+    "pages": [103],
+    "chapter_id": 15,
+    "treasures": {
+      "68": "Gain \"Helix Ring\" (Item 130)"
+    },
+    "region_ids": [2],
+    "cards": ["C-17"],
+    "rewards": ["10 experience each"]
+  }, {
+    "id": 82,
+    "name": "Burning Mountain",
+    "coordinates": {
+      "name": "M-6",
+      "x": 30.28,
+      "y": 76.5
+    },
+    "is_side": true,
+    "pages": [104],
+    "chapter_id": 14,
+    "treasures": {
+      "62": "Gain \"Helm of the Mountain\" and \"Mountain Hammer\" (Item 110 and 115)"
+    },
+    "region_ids": [4],
+    "cards": ["R-24"],
+    "rewards": [
+      ["+1 reputation"],
+      ["-1 reputation", "-2 prosperity"]
+    ]
+  }, {
+    "id": 83,
+    "name": "Shadows Within",
+    "coordinates": {
+      "name": "C-15",
+      "x": 69.13,
+      "y": 18.7
+    },
+    "is_side": true,
+    "pages": [105],
+    "requirements": "Bad Business (Party) COMPLETE",
+    "chapter_id": 15,
+    "region_ids": [1],
+    "cards": ["C-31"],
+    "rewards": ["40 collective gold"]
+  }, {
+    "id": 84,
+    "name": "Crystalline Cave",
+    "coordinates": {
+      "name": "D-12",
+      "x": 58.58,
+      "y": 26.45
+    },
+    "is_side": true,
+    "pages": [106],
+    "requirements": "Tremors (Party) COMPLETE",
+    "chapter_id": 13,
+    "treasures": {
+      "42": "Random Item Design"
+    },
+    "region_ids": [5],
+    "rewards": ["“Resonant Crystal” (Item 133)", "+1 prosperity"]
+  }, {
+    "id": 85,
+    "name": "Sun Temple",
+    "coordinates": {
+      "name": "M-3",
+      "x": 18.55,
+      "y": 77
+    },
+    "is_side": true,
+    "pages": [107, 108],
+    "chapter_id": 14,
+    "region_ids": [4],
+    "cards": ["R-48", "R-61", "R-62"],
+    "rewards": ["“Orb of Dawn” (Item 121)"]
+  }, {
+    "id": 86,
+    "name": "Harried Village",
+    "coordinates": {
+      "name": "D-15",
+      "x": 70.5,
+      "y": 26.95
+    },
+    "is_side": true,
+    "pages": [108, 109],
+    "chapter_id": 15,
+    "links_to": [87],
+    "region_ids": [1],
+    "cards": ["C-47", "C-63"],
+    "achievements_awarded": ["PTPS"],
+    "rewards": ["+2 reputation"]
+  }, {
+    "id": 87,
+    "name": "Corrupted Cove",
+    "coordinates": {
+      "name": "I-9",
+      "x": 45.64,
+      "y": 55.32
+    },
+    "is_side": true,
+    "pages": [110],
+    "requirements": "The Poison’s Source (Party) COMPLETE",
+    "chapter_id": 15,
+    "linked_from": [86],
+    "treasures": {
+      "40": "Random Item Design"
+    },
+    "cards": ["C-47"],
+    "rewards": ["+1 reputation", "+1 prosperity"]
+  }, {
+    "id": 88,
+    "name": "Plane of Water",
+    "coordinates": {
+      "name": "D-16",
+      "x": 78.205,
+      "y": 23.212
+    },
+    "is_side": true,
+    "pages": [111],
+    "requirements": "Water-Breathing (Global) and Water Staff (Party) COMPLETE",
+    "chapter_id": 15,
+    "required_by": [{
+      "complete": ["GWB"]
+    }],
+    "treasures": {
+      "8": "Gain 1 ✔",
+      "37": "Gain 1 ✔"
+    },
+    "region_ids": [1],
+    "cards": ["R-50", "C-68"],
+    "rewards": ["“Staff of Summoning” (Item 120)"]
+  }, {
+    "id": 89,
+    "name": "Syndicate Hideout",
+    "coordinates": {
+      "name": "C-17",
+      "x": 79.9,
+      "y": 19.3
+    },
+    "is_side": true,
+    "pages": [112],
+    "requirements": "Sin-Ra (Party) COMPLETE",
+    "chapter_id": 15,
+    "treasures": {
+      "13": "Suffer 5 Damage and gain POISON and WOUND",
+      "27": "Gain \"Orb of Twilight\" (Item 122)",
+      "43": "Suffer 5 damage gain POISON and WOUND"
+    },
+    "region_ids": [1],
+    "cards": ["C-51", "C-64"],
+    "rewards": ["50 collective gold"]
+  }, {
+    "id": 90,
+    "name": "Demonic Rift",
+    "coordinates": {
+      "name": "J-7",
+      "x": 34.43,
+      "y": 58.86
+    },
+    "is_side": true,
+    "pages": [113],
+    "chapter_id": 14,
+    "treasures": {
+      "19": "Random Item Design"
+    },
+    "cards": ["R-44"],
+    "rewards": ["“Black Censer” (Item 128)"]
+  }, {
+    "id": 91,
+    "name": "Wild Melee",
+    "coordinates": {
+      "name": "E-2",
+      "x": 10.34,
+      "y": 31.74
+    },
+    "is_side": true,
+    "pages": [114],
+    "chapter_id": 15,
+    "region_ids": [2],
+    "cards": ["C-58"],
+    "rewards": ["2 ✔ each"]
+  }, {
+    "id": 92,
+    "name": "Back Alley Brawl",
+    "coordinates": {
+      "name": "C-14",
+      "x": 66.7,
+      "y": 17.5
+    },
+    "is_side": true,
+    "pages": [115],
+    "requirements": "Debt Collection (Party) COMPLETE",
+    "chapter_id": 15,
+    "region_ids": [1],
+    "cards": ["C-56", "C-66", "C-67"],
+    "rewards": ["10 gold each", "-3 reputation"]
+  }, {
+    "id": 93,
+    "name": "Sunken Vessel",
+    "coordinates": {
+      "name": "N-17",
+      "x": 80.2,
+      "y": 78.263
+    },
+    "is_side": true,
+    "pages": [116],
+    "requirements": "A Map to Treasure (Party) COMPLETE",
+    "chapter_id": 15,
+    "treasures": {
+      "54": "Gain \"Doomed Compass\" (Item 124)"
+    },
+    "region_ids": [6],
+    "cards": ["C-8"],
+    "rewards": ["10 experience each"]
+  }, {
+    "id": 94,
+    "name": "Vermling Nest",
+    "coordinates": {
+      "name": "F-12",
+      "x": 55.85,
+      "y": 38.9
+    },
+    "is_side": true,
+    "pages": [117],
+    "chapter_id": 15,
+    "links_to": [95],
+    "cards": ["C-78"],
+    "achievements_awarded": ["PTTN"]
+  }, {
+    "id": 95,
+    "name": "Payment Due",
+    "coordinates": {
+      "name": "G-12",
+      "x": 59,
+      "y": 38.65
+    },
+    "pages": [118, 119],
+    "requirements": "Through the Nest (Party) COMPLETE",
+    "required_by": [{
+      "complete": ["PTTN"]
+    }],
+    "chapter_id": 15,
+    "linked_from": [94],
+    "cards": ["C-78"],
+    "rewards": ["“Skull of Hatred” (Item 119)"]
+  }],
+  "chapters": [{
+    "id": 1,
+    "name": "Intro"
+  }, {
+    "id": 2,
+    "name": "The Merchant"
+  }, {
+    "id": 3,
+    "name": "Demon and Rift"
+  }, {
+    "id": 4,
+    "name": "Sewers"
+  }, {
+    "id": 5,
+    "name": "Rebellion Rises"
+  }, {
+    "id": 6,
+    "name": "Under Oceans"
+  }, {
+    "id": 7,
+    "name": "Through Jungles"
+  }, {
+    "id": 8,
+    "name": "Atop Mountains"
+  }, {
+    "id": 9,
+    "name": "Dragons"
+  }, {
+    "id": 10,
+    "name": "Voice"
+  }, {
+    "id": 11,
+    "name": "Personal Quests"
+  }, {
+    "id": 12,
+    "name": "Random Scenarios"
+  }, {
+    "id": 13,
+    "name": "Sealed"
+  }, {
+    "id": 14,
+    "name": "Road Events"
+  }, {
+    "id": 15,
+    "name": "City Events"
+  }, {
+    "id": 16,
+    "name": "Solo Scenarios"
+  }],
+  "regions": [{
+    "id": 1,
+    "name": "Gloomhaven"
+  }, {
+    "id": 2,
+    "name": "Dagger Forest"
+  }, {
+    "id": 3,
+    "name": "Lingering Swamp"
+  }, {
+    "id": 4,
+    "name": "Watcher Mountains"
+  }, {
+    "id": 5,
+    "name": "Copperneck Mountains"
+  }, {
+    "id": 6,
+    "name": "Misty Sea"
+  }, {
+    "id": 7,
+    "name": "Crypt"
+  }]
+}
