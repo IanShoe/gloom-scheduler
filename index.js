@@ -99,8 +99,5 @@ async function main() {
 main();
 
 process.on('SIGINT', function() {
-  app.close();
-  framework.stop().then(function() {
-    process.exit();
-  });
+  http.close();
 });

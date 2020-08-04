@@ -55,7 +55,7 @@ function _unlockItem(itemId) {
 
 async function _buyItem(playerName, itemId) {
   serverData[itemId - 1].ownedBy.push(playerName);
-  await _writeData;
+  await _writeData();
 }
 
 async function _sellItem(playerName, itemId) {
@@ -64,6 +64,7 @@ async function _sellItem(playerName, itemId) {
       serverData[itemId - 1].ownedBy.splice(i, 1);
     }
   }
+  await _writeData();
 }
 
 module.exports = {

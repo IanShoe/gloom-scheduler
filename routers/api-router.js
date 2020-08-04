@@ -1,29 +1,9 @@
-const Framework = require('webex-node-bot-framework');
-const webhook = require('webex-node-bot-framework/webhook');
 const bodyParser = require('body-parser');
 const express = require('express');
 
 const scenarioService = require('../data-services/scenario-service');
 const votingService = require('../data-services/voting-service');
-
-const botConfig = {
-  webhookUrl: 'http://54.209.227.191/api/gloombot',
-  token: 'ZjcwNjMwYjgtMmI1Mi00MmQyLWI4ZmMtMTc2NDI4YWEyNzU1NDNkY2U2Y2ItMTI0_PF84_6326641e-1e35-4da9-a4ba-c1fdb0d661d9',
-  port: 80
-};
-
-const framework = new Framework(botConfig);
-framework.start();
-
-framework.hears('scenarios', async function(bot, trigger) {
-  try {
-    const scenarios = (await scenarioService.get()).map(scenario => scenario.prettyName);
-    bot.say(`Available Scenarios\n-------------------\n${scenarios.join('\n')}`);
-  } catch (e) {
-    console.error(e);
-    bot.say(`Oopsies\n${e}`);
-  }
-});
+const webexWebhook = require('../webhooks/webex-webhook');
 
 const router = express.Router();
 
@@ -34,9 +14,8 @@ function asyncHandler(requestHandler) {
   };
 }
 
-router.post('/gloombot', bodyParser.json(), webhook(framework));
+router.post('/gloombot', bodyParser.json(), webexWebhook);
 router.use(bodyParser.text());
-
 
 router.get('/play', asyncHandler(async function(req, res) {
   res.send((await votingService.play()).prettyName);
