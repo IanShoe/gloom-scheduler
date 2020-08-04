@@ -1,4 +1,4 @@
-html, body, div#app {
+html, body {
   height: 100%;
   user-select: none;
 }
@@ -8,6 +8,7 @@ th.header-toggled {
 }
 
 .main-content {
+  height: calc(100% - 56px);
   padding: 10px 30px;
 }
 
