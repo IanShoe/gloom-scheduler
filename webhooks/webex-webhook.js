@@ -55,7 +55,7 @@ framework.hears('vote', async function(bot, trigger) {
   bot.say(`Voted for: ${voteResult}`);
 });
 
-framework.hears('vote', async function(bot, trigger) {
+framework.hears('votes', async function(bot, trigger) {
   const votes = await votingService.votes();
   bot.say(`Current Votes\n${votes}`);
 });
