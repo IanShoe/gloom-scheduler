@@ -8,7 +8,7 @@ async function _play() {
   }
   const id = votes[Math.floor(Math.random() * votes.length)];
   _reset();
-  return await scenarioService.get(id);
+  return await scenarioService.get(id).prettyName;
 }
 
 function _reset() {

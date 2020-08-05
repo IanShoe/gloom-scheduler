@@ -18,7 +18,7 @@ router.post('/gloombot', bodyParser.json(), webexWebhook);
 router.use(bodyParser.text());
 
 router.get('/play', asyncHandler(async function(req, res) {
-  res.send((await votingService.play()).prettyName);
+  res.send((await votingService.play()));
 }));
 
 router.get('/scenarios', asyncHandler(async function(req, res) {
