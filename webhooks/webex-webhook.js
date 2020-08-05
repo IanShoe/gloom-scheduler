@@ -39,13 +39,13 @@ framework.hears('reset', async function(bot) {
 
 framework.hears('vote', async function(bot, trigger) {
   const parts = trigger.message.text.split(' ');
-  const voteResult = await votingService.vote(parseInt(parts[parts.length -1));
+  const voteResult = await votingService.vote(parseInt(parts[parts.length -1]));
   bot.say(`Voted for: ${voteResult}`);
 });
 
 framework.hears('unvote', async function(bot) {
   const parts = trigger.message.text.split(' ');
-  const unvoteResult = await votingService.vote(parseInt(parts[parts.length -1));
+  const unvoteResult = await votingService.vote(parseInt(parts[parts.length -1]));
   bot.say(`Unvoted for: ${unvoteResult}`);
 });
 
