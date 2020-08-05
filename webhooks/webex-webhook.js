@@ -45,7 +45,7 @@ framework.hears('vote', async function(bot, trigger) {
 
 framework.hears('unvote', async function(bot, trigger) {
   const parts = trigger.message.text.split(' ');
-  const unvoteResult = await votingService.vote(parseInt(parts[parts.length -1]));
+  const unvoteResult = await votingService.unvote(parseInt(parts[parts.length -1]));
   bot.say(`Unvoted for: ${unvoteResult}`);
 });
 
