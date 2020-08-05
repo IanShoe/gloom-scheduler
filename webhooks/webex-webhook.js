@@ -22,6 +22,20 @@ framework.hears('scenarios', async function(bot) {
   }
 });
 
+async function helpFn(bot) {
+  const res = `Help
+-------------------
+@gloombot scenarios
+@gloombot vote #
+@gloombot unvote #
+@gloombot play
+@gloombot reset`;
+  bot.say(res);
+}
+
+framework.hears(/.*/gim, helpFn);
+framework.hears('help', helpFn);
+
 framework.hears('play', async function(bot) {
   bot.say((await votingService.play()));
 });
