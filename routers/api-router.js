@@ -47,6 +47,11 @@ router.post('/vote', asyncHandler(async function(req, res) {
   res.send(`Voted for: ${voteResult}`);
 }));
 
+router.get('/votes', asyncHandler(async function(req, res) {
+  const votes = await votingService.votes();
+  res.send(`Current Votes\n${votes}`);
+}));
+
 router.post('/unvote', asyncHandler(async function(req, res) {
   const unvoteResult = await votingService.unvote(parseInt(req.body));
   res.send(`Unvoted for: ${unvoteResult}`);

@@ -35,9 +35,26 @@ async function _unvote(id) {
   }
 }
 
+async function _votes() {
+  let voteMap = {};
+  for (let i = 0; i < votes.length; i++) {
+    const id = votes[i];
+    const scenario = await scenarioService.get(id);
+    if (!voteMap[id]) {
+      voteMap[id] = {
+        votes: 0,
+        name: scenario.prettyName
+      };
+    }
+    voteMap[id].votes++;
+  }
+  return Object.values(voteMap).sort((a, b) => a.votes - b.votes).reverse().map((v) => `${v.name} - ${v.votes}`).join('\n');
+}
+
 module.exports = {
   play: _play,
   reset: _reset,
   unvote: _unvote,
-  vote: _vote
+  vote: _vote,
+  votes: _votes
 }

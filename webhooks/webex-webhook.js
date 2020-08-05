@@ -12,7 +12,7 @@ const framework = new Framework({
 
 framework.start();
 
-framework.hears('scenarios', async function(bot) {
+framework.hears('scenarios', async function(bot, trigger) {
   try {
     const scenarios = (await scenarioService.get()).map(scenario => scenario.prettyName);
     bot.say(`Available Scenarios\n-------------------\n${scenarios.join('\n')}`);
@@ -22,10 +22,11 @@ framework.hears('scenarios', async function(bot) {
   }
 });
 
-framework.hears('help', async function(bot) {
+framework.hears('help', async function(bot, trigger) {
   const res = `Help
 -------------------
 @gloombot scenarios
+@gloombot votes
 @gloombot vote #
 @gloombot unvote #
 @gloombot play
@@ -33,11 +34,11 @@ framework.hears('help', async function(bot) {
   bot.say(res);
 });
 
-framework.hears('play', async function(bot) {
+framework.hears('play', async function(bot, trigger) {
   bot.say((await votingService.play()));
 });
 
-framework.hears('reset', async function(bot) {
+framework.hears('reset', async function(bot, trigger) {
   try {
     votingService.reset();
     await scenarioService.reset();
@@ -52,6 +53,11 @@ framework.hears('vote', async function(bot, trigger) {
   const parts = trigger.message.text.split(' ');
   const voteResult = await votingService.vote(parseInt(parts[parts.length -1]));
   bot.say(`Voted for: ${voteResult}`);
+});
+
+framework.hears('vote', async function(bot, trigger) {
+  const votes = await votingService.votes();
+  bot.say(`Current Votes\n${votes}`);
 });
 
 framework.hears('unvote', async function(bot, trigger) {
